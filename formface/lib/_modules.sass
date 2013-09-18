@@ -83,6 +83,8 @@
       position: relative
       top: -($ff-input-height + $ff-input-height/3)
 
+    color: $ff-input-color
+    font-size: $ff-input-font-size
     padding: $ff-input-padding-vertical $ff-input-padding-horizontal
     line-height: $ff-input-height
     border-radius: $ff-input-round
@@ -93,7 +95,7 @@
     box-shadow: $ff-input-box-shadow
     +transition(border-color, box-shadow, ease-in-out, 0.15s)
 
-    &:focus, &:disabled, &:required, &:invalid, &:out-of-range, &:in-range, &:read-only
+    &:focus, &:disabled, &:required, &:invalid, &:in-range, &:read-only
       outline: 0
       border-bottom-width: 1px
       z-index: 10
@@ -104,6 +106,9 @@
     &:invalid
       +color-state($ff-state-invalid)
 
-    &:disabled
+    &:in-range
+      +color-state($ff-state-success)
+
+    &:disabled, &:read-only
       cursor: not-allowed
       background: $ff-state-disabled
