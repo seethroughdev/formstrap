@@ -9,14 +9,28 @@
     display: block
     margin-bottom: $ff-group-margin
 
-    label:first-of-type
+    label
       input
-        border-top-left-radius: $ff-group-round
-        border-top-right-radius: $ff-group-round
-    label:last-of-type
-      input
-        border-bottom-left-radius: $ff-group-round
-        border-bottom-right-radius: $ff-group-round
+        @if $ff-field-margin == 0
+          border-top-width: 0
+          border-radius: 0
+          @if $ff-label-position == 'top'
+            border-top-width: 1px
+      &:first-of-type
+        input
+          @if $ff-field-margin == 0
+            border-top-left-radius: $ff-input-round
+            border-top-right-radius: $ff-input-round
+            border-bottom-left-radius: 0
+            border-bottom-right-radius: 0
+          border-top-width: 1px
+      &:last-of-type
+        input
+          @if $ff-field-margin == 0
+            border-top-left-radius: 0
+            border-top-right-radius: 0
+            border-bottom-left-radius: $ff-input-round
+            border-bottom-right-radius: $ff-input-round
 
   .label
     width: $ff-label-width
@@ -33,7 +47,7 @@
 
     // set label position
     @if $ff-label-position == 'right'
-      padding: 0 0 0 $ff-label-padding
+      padding: ($ff-input-height/3) 0 0 $ff-label-padding
     @else if $ff-label-position == 'top'
       display: block
     @else if $ff-label-position == 'bottom'
@@ -62,8 +76,7 @@
       position: relative
       top: -$ff-input-height
 
-    padding: $ff-input-padding
-    // height: $ff-input-height
+    padding: $ff-input-padding-vertical $ff-input-padding-horizontal
     line-height: $ff-input-height
     border-radius: $ff-input-round
     vertical-align: middle
