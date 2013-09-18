@@ -1,3 +1,8 @@
+/index.html
+/css
+*.css
+codekit-config.json
+
 ### /Users/flooky/.gitignore-boilerplates/Global/OSX.gitignore
 
 .DS_Store
