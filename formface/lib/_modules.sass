@@ -1,0 +1,29 @@
+.form-face
+  label
+    display: block
+    +clearfix
+  .form-group
+    display: block
+  .label
+    width: $ff-label-width
+    line-height: $ff-input-height
+    +inline-block
+    @if ($ff-label-position == 'left')
+      text-align: right
+      padding: 0 $ff-label-padding 0 0
+    @if ($ff-label-position == 'right')
+      text-align: left
+      padding: 0 0 0 $ff-label-padding
+    @if ($ff-label-position == 'none')
+      display: none
+      opacity: 0
+  input
+    @if ($ff-label-position != 'none')
+      width: $ff-input-width - $ff-label-width - 1%
+    @else
+      width: $ff-input-width
+    @if ($ff-label-position == 'right')
+      float: left
+    height: $ff-input-height
+    line-height: $ff-input-height
+    border-radius: $ff-input-round
