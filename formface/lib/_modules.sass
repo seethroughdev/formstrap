@@ -3,9 +3,21 @@
     +clearfix
     position: relative
     display: block
+    margin-bottom: $ff-field-margin
   .form-group
     +clearfix
     display: block
+    margin-bottom: $ff-group-margin
+
+    label:first-of-type
+      input
+        border-top-left-radius: $ff-group-round
+        border-top-right-radius: $ff-group-round
+    label:last-of-type
+      input
+        border-bottom-left-radius: $ff-group-round
+        border-bottom-right-radius: $ff-group-round
+
   .label
     width: $ff-label-width
     line-height: $ff-input-height
