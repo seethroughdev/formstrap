@@ -4,28 +4,31 @@
     position: relative
     display: block
     margin-bottom: $ff-field-margin
+
   .form-group
     +clearfix
     display: block
-    margin-bottom: $ff-group-margin
+    margin-bottom: $ff-field-margin
 
     label
+      @if $ff-group-margin == 0
+        margin-bottom: 0
       input
-        @if $ff-field-margin == 0
+        @if $ff-group-margin == 0
           border-bottom-width: 0
           border-radius: 0
           @if $ff-label-position == 'top'
             border-top-width: 1px
       &:first-of-type
         input
-          @if $ff-field-margin == 0
+          @if $ff-group-margin == 0
             border-top-left-radius: $ff-input-round
             border-top-right-radius: $ff-input-round
             border-bottom-left-radius: 0
             border-bottom-right-radius: 0
       &:last-of-type
         input
-          @if $ff-field-margin == 0
+          @if $ff-group-margin == 0
             border-top-left-radius: 0
             border-top-right-radius: 0
             border-bottom-left-radius: $ff-input-round
@@ -57,7 +60,7 @@
     @else if $ff-label-position == 'bottom'
       display: block
       position: relative
-      top: $ff-input-height
+      top: $ff-input-height + $ff-input-height/3
     @else if $ff-label-position == 'none'
       display: none
       opacity: 0
@@ -78,7 +81,7 @@
       float: left
     @if ($ff-label-position == 'bottom')
       position: relative
-      top: -$ff-input-height
+      top: -($ff-input-height + $ff-input-height/3)
 
     padding: $ff-input-padding-vertical $ff-input-padding-horizontal
     line-height: $ff-input-height
