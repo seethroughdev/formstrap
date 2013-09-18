@@ -23,6 +23,13 @@
     line-height: $ff-input-height
     +inline-block
     text-align: left
+    font-size: $ff-label-font-size
+
+    // set label case
+    @if $ff-label-case == 'upper'
+      text-transform: uppercase
+    @else if $ff-label-case == 'lower'
+      text-transform: lowercase
 
     // set label position
     @if $ff-label-position == 'right'
