@@ -12,7 +12,7 @@
     label
       input
         @if $ff-field-margin == 0
-          border-top-width: 0
+          border-bottom-width: 0
           border-radius: 0
           @if $ff-label-position == 'top'
             border-top-width: 1px
@@ -23,7 +23,6 @@
             border-top-right-radius: $ff-input-round
             border-bottom-left-radius: 0
             border-bottom-right-radius: 0
-          border-top-width: 1px
       &:last-of-type
         input
           @if $ff-field-margin == 0
@@ -31,6 +30,10 @@
             border-top-right-radius: 0
             border-bottom-left-radius: $ff-input-round
             border-bottom-right-radius: $ff-input-round
+            border-bottom-width: 1px
+      input:focus, input:invalid, input:disabled
+        border-bottom-width: 1px
+        z-index: 10
 
   .label
     width: $ff-label-width
@@ -38,6 +41,7 @@
     +inline-block
     text-align: left
     font-size: $ff-label-font-size
+    color: $ff-label-color
 
     // set label case
     @if $ff-label-case == 'upper'
@@ -83,3 +87,20 @@
     background-color: $ff-input-bg
     border: $ff-input-border
     border-color: $ff-input-border-color
+    box-shadow: $ff-input-box-shadow
+    +transition(border-color, box-shadow, ease-in-out, 0.15s)
+
+    &:focus, &:disabled, &:required, &:invalid, &:out-of-range, &:in-range, &:read-only
+      outline: 0
+      border-bottom-width: 1px
+      z-index: 10
+
+    &:focus
+      +color-state($ff-state-focus)
+
+    &:invalid
+      +color-state($ff-state-invalid)
+
+    &:disabled
+      cursor: not-allowed
+      background: $ff-state-disabled
