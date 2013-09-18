@@ -2,7 +2,8 @@
 /css
 *.css
 codekit-config.json
-/html
+/pre
+general.css
 
 ### /Users/flooky/.gitignore-boilerplates/Global/OSX.gitignore
 
