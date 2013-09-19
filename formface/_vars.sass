@@ -7,22 +7,23 @@ $lt-grey: lighten($grey, 5%)
 $dk-grey: darken($grey, 5%)
 $black: #444
 
-// form style
+// form
 $ff-width: 100%
-$ff-form-bg: $lt-grey
-$ff-padding: 2em
+$ff-form-bg: transparent
+$ff-padding: 0
 
 // groups
-$ff-group-margin: 0           // Enter 0 for 'stacked', margin in groups
+$ff-group-stacked: true           // Enter 0 for 'stacked', margin in groups
 
 // fields
 $ff-field-margin: 1em         // Bottom only, applies to single and groups
 
 // labels
 $ff-label-width: 20%
-$ff-label-position: 'none'  // 'left/right/top/bottom/none'
+$ff-label-position: 'left'  // 'left/right/top/bottom/none'
+$ff-label-align: right     // 'left/right'
 $ff-label-font-size: .9em
-$ff-label-color: black
+$ff-label-color: inherit
 $ff-label-case: 'none'      // 'upper/lower/none'
 $ff-label-padding: 5px      // left or right based on position
 
@@ -32,7 +33,7 @@ $ff-input-width: 100%
 $ff-input-height: 1.8em
 $ff-input-padding-horizontal: 12px
 $ff-input-padding-vertical: 6px
-$ff-input-round: 4px
+$ff-input-round: 5px
 $ff-input-bg: #fff
 $ff-input-border: 1px solid
 $ff-input-border-color: $dk-grey
@@ -45,3 +46,6 @@ $ff-state-focus: $blue
 $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
 $ff-state-success: $green
+
+// placeholder
+$ff-placeholder-color: $grey

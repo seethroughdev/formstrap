@@ -11,24 +11,24 @@
     margin-bottom: $ff-field-margin
 
     label
-      @if $ff-group-margin == 0
+      @if $ff-group-stacked
         margin-bottom: 0
       input
-        @if $ff-group-margin == 0
+        @if $ff-group-stacked
           border-bottom-width: 0
           border-radius: 0
           @if $ff-label-position == 'top'
             border-top-width: 1px
       &:first-of-type
         input
-          @if $ff-group-margin == 0
+          @if $ff-group-stacked
             border-top-left-radius: $ff-input-round
             border-top-right-radius: $ff-input-round
             border-bottom-left-radius: 0
             border-bottom-right-radius: 0
       &:last-of-type
         input
-          @if $ff-group-margin == 0
+          @if $ff-group-stacked
             border-top-left-radius: 0
             border-top-right-radius: 0
             border-bottom-left-radius: $ff-input-round
@@ -39,10 +39,10 @@
         z-index: 10
 
   .label
+    +inline-block
     width: $ff-label-width
     line-height: $ff-input-height
-    +inline-block
-    text-align: left
+    text-align: $ff-label-align
     font-size: $ff-label-font-size
     color: $ff-label-color
 
@@ -57,15 +57,16 @@
       padding: ($ff-input-height/3) 0 0 $ff-label-padding
     @else if $ff-label-position == 'top'
       display: block
+      width: 100%
     @else if $ff-label-position == 'bottom'
       display: block
       position: relative
+      width: 100%
       top: $ff-input-height + $ff-input-height/3
     @else if $ff-label-position == 'none'
       display: none
       opacity: 0
     @else
-      text-align: right
       padding: 0 $ff-label-padding 0 0
 
   input
@@ -106,9 +107,12 @@
     &:invalid
       +color-state($ff-state-invalid)
 
-    &:in-range
-      +color-state($ff-state-success)
+    // &:in-range
+    //   +color-state($ff-state-success)
 
     &:disabled, &:read-only
       cursor: not-allowed
       background: $ff-state-disabled
+
+    +placeholder
+      color: $ff-placeholder-color
