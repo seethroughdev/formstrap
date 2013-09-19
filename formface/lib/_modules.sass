@@ -5,74 +5,57 @@
     display: block
     margin-bottom: $ff-field-margin
 
-  .form-group
-    +clearfix
-    display: block
-    margin-bottom: $ff-field-margin
-
-    label
-      @if $ff-group-stacked
-        margin-bottom: 0
-        .help-block
-          display: none
-      input
-        @if $ff-group-stacked
-          border-bottom-width: 0
-          border-radius: 0
-          @if $ff-label-position == 'top'
-            border-top-width: 1px
-      &:first-of-type
-        input
-          @if $ff-group-stacked
-            border-top-left-radius: $ff-input-round
-            border-top-right-radius: $ff-input-round
-            border-bottom-left-radius: 0
-            border-bottom-right-radius: 0
-      &:last-of-type
-        input
-          @if $ff-group-stacked
-            border-top-left-radius: 0
-            border-top-right-radius: 0
-            border-bottom-left-radius: $ff-input-round
-            border-bottom-right-radius: $ff-input-round
-            border-bottom-width: 1px
-      input:focus, input:invalid, input:disabled
-        border-bottom-width: 1px
-        z-index: 10
-
-  .label, label:before
-    content: attr(data-label)
-    +inline-block
-    width: $ff-label-width
-    line-height: $ff-input-height
-    text-align: $ff-label-align
-    font-size: $ff-label-font-size
-    color: $ff-label-color
-
-    // set label case
-    @if $ff-label-case == 'upper'
-      text-transform: uppercase
-    @else if $ff-label-case == 'lower'
-      text-transform: lowercase
-
-    // set label position
-    @if $ff-label-position == 'right'
-      padding: ($ff-input-height/3) 0 0 $ff-label-padding
-    @else if $ff-label-position == 'top'
+    &:after, span.help-block
+      content: attr(data-help)
+      margin-top: 5px
+      margin-bottom: 5px
       display: block
-      width: 100%
-    @else if $ff-label-position == 'bottom'
-      display: block
-      position: relative
-      width: 100%
-      top: $ff-input-height + $ff-input-height/3
-    @else if $ff-label-position == 'none'
-      display: none
-      opacity: 0
-    @else
-      padding: 0 $ff-label-padding 0 0
+      color: $ff-help-color
+      font-size: $ff-help-size
+      @if $ff-label-position == 'right'
+        margin-right: $ff-label-width
+      @if $ff-label-position == 'none'
+        margin-right: 0
+        margin-left: 0
+      @else
+        margin-left: $ff-label-width
+        padding-left: $ff-input-padding-horizontal
+      @if $ff-help-display == false
+        display: none
 
-  input
+    &:before, .label
+      content: attr(data-label)
+      +inline-block
+      width: $ff-label-width
+      line-height: $ff-input-height
+      text-align: $ff-label-align
+      font-size: $ff-label-font-size
+      color: $ff-label-color
+
+      // set label case
+      @if $ff-label-case == 'upper'
+        text-transform: uppercase
+      @else if $ff-label-case == 'lower'
+        text-transform: lowercase
+
+      // set label position
+      @if $ff-label-position == 'right'
+        padding: ($ff-input-height/3) 0 0 $ff-label-padding
+      @else if $ff-label-position == 'top'
+        display: block
+        width: 100%
+      @else if $ff-label-position == 'bottom'
+        display: block
+        position: relative
+        width: 100%
+        top: $ff-input-height + $ff-input-height/3
+      @else if $ff-label-position == 'none'
+        display: none
+        opacity: 0
+      @else
+        padding: 0 $ff-label-padding 0 0
+
+  input, textarea
     // set width based on label
     @if ($ff-label-position == 'left')
       width: $ff-input-width - $ff-label-width - 1%
@@ -121,17 +104,49 @@
     +placeholder
       color: $ff-placeholder-color
 
-  span.help-block, label:after
-    content: attr(data-help)
-    margin-top: 5px
-    margin-bottom: 5px
+
+    // height: auto
+    // padding: $ff-input-padding-vertical $ff-input-padding-horizontal
+    // font-size: $ff-input
+
+  .form-group
+    +clearfix
     display: block
-    color: $ff-help-color
-    font-size: $ff-help-size
-    @if $ff-label-position == 'right'
-      margin-right: $ff-label-width
-    @if $ff-label-position == 'none'
-      margin-right: 0
-      margin-left: 0
-    @else
-      margin-left: $ff-label-width
+    margin-bottom: $ff-field-margin
+
+    label
+      @if $ff-group-stacked
+        margin-bottom: 0
+        .help-block
+          display: none
+      input
+        @if $ff-group-stacked
+          border-bottom-width: 0
+          border-radius: 0
+          @if $ff-label-position == 'top'
+            border-top-width: 1px
+      &:first-of-type
+        input
+          @if $ff-group-stacked
+            border-top-left-radius: $ff-input-round
+            border-top-right-radius: $ff-input-round
+            border-bottom-left-radius: 0
+            border-bottom-right-radius: 0
+      &:last-of-type
+        input
+          @if $ff-group-stacked
+            border-top-left-radius: 0
+            border-top-right-radius: 0
+            border-bottom-left-radius: $ff-input-round
+            border-bottom-right-radius: $ff-input-round
+            border-bottom-width: 1px
+      input:focus, input:invalid, input:disabled
+        border-bottom-width: 1px
+        z-index: 10
+
+      &:after, span.help-block
+        @if $ff-group-stacked
+          display: none
+
+
+
