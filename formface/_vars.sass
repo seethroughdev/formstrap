@@ -1,4 +1,5 @@
-// colors
+// Set your color variables here, you can add or edit any way you see fit, just be sure to use the variables below in the settings.
+
 $blue: hsla(198.78, 71.43%, 68.43%, 1.00)
 $red: hsla(352.44, 73.41%, 66.08%, 1.00)
 $green: hsla(127.02, 80.28%, 41.76%, 1.00)
@@ -7,28 +8,37 @@ $lt-grey: lighten($grey, 5%)
 $dk-grey: darken($grey, 5%)
 $black: #444
 
-// form
+
+// Disable if you are already using Nicolas Gallagher's Normalize.css http://necolas.github.io/normalize.css/  Otherwise, its best to leave this!
+$ff-import-normalize: true
+
+
+// General form settings
 $ff-width: 100%
-$ff-form-bg: transparent
-$ff-padding: 0
+$ff-form-bg: transparent        // Leave transparent to inherit background
+$ff-padding: 0                  // Form padding
+
 
 // groups
-$ff-group-stacked: false           // Enter 0 for 'stacked', margin in groups
+$ff-group-stacked: false        // Enter 0 for 'stacked', margin in groups
+
 
 // fields
-$ff-field-margin: 1em         // Bottom only, applies to single and groups
+$ff-field-margin: 1em           // Bottom only, applies to single and groups
+
 
 // labels
 $ff-label-width: 20%
-$ff-label-position: 'left'  // 'left/right/top/bottom/none'
-$ff-label-align: right     // 'left/right'
+$ff-label-position: 'left'      // 'left/right/top/bottom/none'
+$ff-label-align: right          // 'left/right'
 $ff-label-font-size: .9em
 $ff-label-color: inherit
-$ff-label-case: 'none'      // 'upper/lower/none'
-$ff-label-padding: 5px      // left or right based on position
+$ff-label-case: 'none'          // 'upper/lower/none'
+$ff-label-padding: 5px          // left or right based on position
+
 
 // inputs
-$ff-input-font-size: 1.1em
+$ff-input-font-size: 1em
 $ff-input-width: 100%
 $ff-input-height: 1.8em
 $ff-input-padding-horizontal: 12px
@@ -47,10 +57,12 @@ $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
 $ff-state-success: $green
 
-// help block
+
+// Help block styles.  *These will auto-hide on stacked fields
 $ff-help-display: true
 $ff-help-color: inherit
 $ff-help-size: 14px
+
 
 // placeholder
 $ff-placeholder-color: $grey
