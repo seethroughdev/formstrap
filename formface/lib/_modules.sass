@@ -55,7 +55,7 @@
       @else
         padding: 0 $ff-label-padding 0 0
 
-  input, textarea
+  input
     // set width based on label
     @if ($ff-label-position == 'left')
       width: $ff-input-width - $ff-label-width - 1%
@@ -78,14 +78,15 @@
     border-radius: $ff-input-round
     vertical-align: middle
     background-color: $ff-input-bg
-    border: $ff-input-border
+    border-style: $ff-input-border-style
+    border-width: $ff-input-border-width
     border-color: $ff-input-border-color
     box-shadow: $ff-input-box-shadow
     +transition(border-color, box-shadow, ease-in-out, 0.15s)
 
     &:focus, &:disabled, &:required, &:invalid, &:in-range, &:read-only
       outline: 0
-      border-bottom-width: 1px
+      border-bottom-width: $ff-input-border-width
       z-index: 10
 
     &:focus
@@ -105,9 +106,9 @@
       color: $ff-placeholder-color
 
 
-    // height: auto
-    // padding: $ff-input-padding-vertical $ff-input-padding-horizontal
-    // font-size: $ff-input
+  textarea
+    @extend input
+    height: auto
 
   .form-group
     +clearfix
@@ -124,7 +125,7 @@
           border-bottom-width: 0
           border-radius: 0
           @if $ff-label-position == 'top'
-            border-top-width: 1px
+            border-top-width: $ff-input-border-width
       &:first-of-type
         input
           @if $ff-group-stacked
@@ -139,9 +140,9 @@
             border-top-right-radius: 0
             border-bottom-left-radius: $ff-input-round
             border-bottom-right-radius: $ff-input-round
-            border-bottom-width: 1px
+            border-bottom-width: $ff-input-border-width
       input:focus, input:invalid, input:disabled
-        border-bottom-width: 1px
+        border-bottom-width: $ff-input-border-width
         z-index: 10
 
       &:after, span.help-block

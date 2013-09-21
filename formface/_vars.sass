@@ -45,14 +45,16 @@ $ff-input-padding-horizontal: 12px
 $ff-input-padding-vertical: 6px
 $ff-input-round: 5px
 $ff-input-bg: #fff
-$ff-input-border: 1px solid
+$ff-input-border-style: solid
+$ff-input-border-width: 1px
 $ff-input-border-color: $dk-grey
-$ff-input-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075)
+$ff-input-box-shadow: inset 0 1px 1px rgba(0,0,0,0.1)
 $ff-input-color: inherit
 
 
 // input state
-$ff-state-style: 'outline'
+$ff-state-style: 'shadow'               // 'outline/shadow'
+$ff-state-shadow: inset 0 0 3px 2px     // if 'shadow' is used
 $ff-state-focus: $blue
 $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
