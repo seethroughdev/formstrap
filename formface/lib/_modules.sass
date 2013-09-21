@@ -41,7 +41,7 @@
 
       // set label position
       @if $ff-label-position == 'right'
-        padding: ($ff-input-height/3) 0 0 $ff-label-padding
+        padding: $ff-label-total-offset 0 $ff-label-total-offset $ff-label-padding
         float: right
       @else if $ff-label-position == 'top'
         display: block
@@ -55,14 +55,11 @@
         display: none
         opacity: 0
       @else
-        padding: 0 $ff-label-padding 0 0
+        padding: $ff-label-total-offset $ff-label-padding $ff-label-total-offset 0
         float: left
 
       @if $ff-label-caps
         background: $ff-label-caps-color
-        padding-top: $ff-input-padding-vertical + $ff-label-caps-offset
-        padding-bottom: $ff-input-padding-vertical + $ff-label-caps-offset
-        line-height: ($ff-input-height)
         text-align: center
         border-style: $ff-input-border-style
         border-width: $ff-input-border-width
@@ -139,24 +136,6 @@
       @if $ff-label-position == 'bottom'
         border-bottom-right-radius: 0
         border-bottom-left-radius: 0
-
-    &:focus, &:disabled, &:required, &:invalid, &:in-range, &:read-only
-      outline: 0
-      border-bottom-width: $ff-input-border-width
-      z-index: 10
-
-    &:focus
-      +color-state($ff-state-focus)
-
-    &:invalid
-      +color-state($ff-state-invalid)
-
-    // &:in-range
-    //   +color-state($ff-state-success)
-
-    &:disabled, &:read-only
-      cursor: not-allowed
-      background: $ff-state-disabled
 
     +placeholder
       color: $ff-placeholder-color

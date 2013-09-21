@@ -1,7 +1,7 @@
-*, *:before, *:after
-  +box-sizing(border-box)
 .form-face
-  *, *:before, *:after
-    +box-sizing(border-box)
   +clearfix
   background: $ff-form-bg
+  @if $ff-import-box-sizing
+    +box-sizing(border-box)
+    *, *:before, *:after
+      +box-sizing(border-box)

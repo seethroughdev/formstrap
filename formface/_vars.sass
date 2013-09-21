@@ -9,8 +9,11 @@ $dk-grey: darken($grey, 5%)
 $black: #444
 
 
-// Disable if you are already using Nicolas Gallagher's Normalize.css http://necolas.github.io/normalize.css/  Otherwise, its best to leave this!
+// Disable if you are already using Nicolas Gallagher's Normalize.css http://necolas.github.io/normalize.css/
 $ff-import-normalize: true
+
+// Disable if you are already using box-sizing(border-box) on your site.
+$ff-import-box-sizing: true
 
 
 // General form settings
@@ -30,15 +33,15 @@ $ff-field-margin: 1em           // Bottom only, applies to single and groups
 // labels
 $ff-label-width: 20%
 $ff-label-position: 'left'      // 'left/right/top/bottom/none'
-$ff-label-align: right          // 'left/right'
+$ff-label-align: left          // 'left/right'
 $ff-label-font-size: .8em
 $ff-label-font-family: inherit
 $ff-label-color: inherit
 $ff-label-case: 'none'          // 'upper/lower/none'
 $ff-label-padding: 5px          // left or right based on position
+$ff-label-offset: 2.5      // use this to fine vertically offset caps
 $ff-label-caps: true
 $ff-label-caps-color: $grey
-$ff-label-caps-offset: 2.5      // use this to fine vertically offset caps
 
 // inputs
 $ff-input-font-size: 1em
@@ -71,5 +74,5 @@ $ff-help-size: 14px
 
 
 // placeholder
-$ff-placeholder-show: false
+$ff-placeholder-show: true
 $ff-placeholder-color: $grey
