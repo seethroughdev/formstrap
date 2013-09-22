@@ -12,6 +12,7 @@
       display: block
       color: $ff-help-color
       font-size: $ff-help-size
+      text-align: $ff-help-align
       @if $ff-label-position == 'right'
         margin-right: $ff-label-width
       @if $ff-label-position == 'none'
@@ -191,6 +192,7 @@
       label
         float: left
         width: (100 / $ff-check-radio-columns) * 1%
+        margin-bottom: $ff-field-margin
         &:before, .label
           background: transparent
           display: inline-block
