@@ -185,5 +185,24 @@
         @if $ff-group-stacked
           display: none
 
-
-
+    &.checkbox-group, &.radio-group
+      @if $ff-label-position == 'left'
+        padding-left: $ff-label-width
+      label
+        float: left
+        width: (100 / $ff-check-radio-columns) * 1%
+        &:before, .label
+          background: transparent
+          display: inline-block
+          opacity: 1
+          border: 0
+          border-radius: 0
+          width: auto
+          float: none
+          line-height: 1em
+          padding: 0 $ff-label-padding
+        &:after, span.help-block
+          display: none
+      input
+        float: left
+        width: auto
