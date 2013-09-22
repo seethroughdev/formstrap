@@ -188,6 +188,12 @@
               border-bottom-left-radius: 0
               border-bottom-right-radius: 0
 
+            @if $ff-label-position == 'top'
+              border-top-left-radius: $ff-input-round
+              border-top-right-radius: $ff-input-round
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: 0
+
         &:last-of-type
           &:before, .label
             border-bottom-width: $ff-input-border-width
@@ -223,10 +229,19 @@
               border-top-right-radius: 0
               border-bottom-left-radius: 0
               border-bottom-right-radius: 0
+
+            @if $ff-label-position == 'none'
+              border-top-left-radius: $ff-input-round
+              border-top-right-radius: $ff-input-round
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: 0
+
+
       &:last-of-type
         input
           @if $ff-group-stacked
             border-bottom-width: $ff-input-border-width
+
             @if $ff-label-position == 'left'
               border-top-left-radius: 0
               border-top-right-radius: 0
@@ -238,6 +253,12 @@
               border-top-right-radius: 0
               border-bottom-left-radius: $ff-input-round
               border-bottom-right-radius: 0
+
+            @if $ff-label-position == 'none'
+              border-top-left-radius: 0
+              border-top-right-radius: 0
+              border-bottom-left-radius: $ff-input-round
+              border-bottom-right-radius: $ff-input-round
 
       input:focus, input:invalid, input:disabled
         border-bottom-width: $ff-input-border-width
@@ -271,3 +292,7 @@
       input
         float: left
         width: auto
+
+  select
+    @if $ff-label-position == 'left'
+      margin-left: $ff-label-width
