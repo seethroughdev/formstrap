@@ -13,20 +13,24 @@
       color: $ff-help-color
       font-size: $ff-help-size
       text-align: $ff-help-align
-      @if $ff-label-position == 'right'
-        margin-right: $ff-label-width
       @if $ff-label-position == 'none'
         margin-right: 0
         margin-left: 0
-      @else
-        margin-left: $ff-label-width
+      @if $ff-label-position == 'left'
         padding-left: $ff-input-padding-horizontal
+        margin-left: $ff-label-width
+      @if $ff-label-position == 'right'
+        padding-left: $ff-input-padding-horizontal
+        margin-right: $ff-label-width
+        margin-left: 0
       @if $ff-help-display == false
+        display: none
+      @if $ff-group-stacked
         display: none
 
     &:before, .label
       content: attr(data-label)
-      +inline-block
+      // +inline-block
       width: $ff-label-width
       line-height: $ff-input-height
       text-align: $ff-label-align
@@ -59,8 +63,8 @@
         padding: $ff-label-total-offset $ff-label-padding $ff-label-total-offset 0
         float: left
 
-      @if $ff-label-caps
-        background: $ff-label-caps-color
+      @if $ff-label-cap
+        background: $ff-label-cap-color
         text-align: center
         border-style: $ff-input-border-style
         border-width: $ff-input-border-width
@@ -121,7 +125,7 @@
       position: relative
       top: -($ff-input-height + $ff-input-height/3)
 
-    @if $ff-label-caps
+    @if $ff-label-cap
       @if $ff-label-position == 'left'
         border-top-left-radius: 0
         border-bottom-left-radius: 0
@@ -157,6 +161,39 @@
         margin-bottom: 0
         .help-block
           display: none
+        @if $ff-label-cap
+          &:before, .label
+            border-bottom-width: 0
+            border-radius: 0
+        &:first-of-type
+          &:before, .label
+            @if $ff-label-position == 'left'
+              border-top-left-radius: $ff-input-round
+              border-top-right-radius: 0
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: 0
+
+            @if $ff-label-position == 'right'
+              border-top-left-radius: 0
+              border-top-right-radius: $ff-input-round
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: 0
+
+        &:last-of-type
+          &:before, .label
+            border-bottom-width: $ff-input-border-width
+            @if $ff-label-position == 'left'
+              border-top-left-radius: 0
+              border-top-right-radius: 0
+              border-bottom-left-radius: $ff-input-round
+              border-bottom-right-radius: 0
+
+            @if $ff-label-position == 'right'
+              border-top-left-radius: 0
+              border-top-right-radius: 0
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: $ff-input-round
+
       input
         @if $ff-group-stacked
           border-bottom-width: 0
@@ -166,25 +203,39 @@
       &:first-of-type
         input
           @if $ff-group-stacked
-            border-top-left-radius: $ff-input-round
-            border-top-right-radius: $ff-input-round
-            border-bottom-left-radius: 0
-            border-bottom-right-radius: 0
+            @if $ff-label-position == 'left'
+              border-top-left-radius: 0
+              border-top-right-radius: $ff-input-round
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: 0
+
+            @if $ff-label-position == 'right'
+              border-top-left-radius: $ff-input-round
+              border-top-right-radius: 0
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: 0
       &:last-of-type
         input
           @if $ff-group-stacked
-            border-top-left-radius: 0
-            border-top-right-radius: 0
-            border-bottom-left-radius: $ff-input-round
-            border-bottom-right-radius: $ff-input-round
             border-bottom-width: $ff-input-border-width
+            @if $ff-label-position == 'left'
+              border-top-left-radius: 0
+              border-top-right-radius: 0
+              border-bottom-left-radius: 0
+              border-bottom-right-radius: $ff-input-round
+
+            @if $ff-label-position == 'right'
+              border-top-left-radius: 0
+              border-top-right-radius: 0
+              border-bottom-left-radius: $ff-input-round
+              border-bottom-right-radius: 0
+
       input:focus, input:invalid, input:disabled
         border-bottom-width: $ff-input-border-width
         z-index: 10
 
-      &:after, span.help-block
-        @if $ff-group-stacked
-          display: none
+      // &:after, span.help-block
+
 
     &.checkbox-group, &.radio-group
       @if $ff-label-position == 'left'
