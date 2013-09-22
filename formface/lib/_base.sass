@@ -6,6 +6,11 @@
     *, *:before, *:after
       +box-sizing(border-box)
 
-  @if ($ff-label-position == 'left')
+  @if $ff-label-position == 'left'
     h1, h2, h3, h4, h5, h6, p
       margin-left: $ff-label-width
+
+  fieldset
+    border: 0
+    margin: 0
+    padding: 0

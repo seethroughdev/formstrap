@@ -3,13 +3,12 @@
     +clearfix
     position: relative
     display: block
-    margin-bottom: $ff-field-margin
+    margin-bottom: $ff-field-margin-bottom
 
     &:after, span.help-block
       content: attr(data-help)
-      margin-top: 5px
-      margin-bottom: 5px
       display: block
+      padding-top: 5px
       color: $ff-help-color
       font-size: $ff-help-size
       text-align: $ff-help-align
@@ -65,7 +64,7 @@
 
       @if $ff-label-cap
         background: $ff-label-cap-color
-        text-align: center
+        // text-align: center
         border-style: $ff-input-border-style
         border-width: $ff-input-border-width
         border-color: $ff-input-border-color
@@ -88,11 +87,15 @@
           border-top-right-radius: $ff-input-round
           border-top-left-radius: $ff-input-round
           border-bottom-width: 0
+          padding-left: $ff-label-padding
+          padding-right: $ff-label-padding
 
         @if $ff-label-position == 'bottom'
           border-bottom-right-radius: $ff-input-round
           border-bottom-left-radius: $ff-input-round
           border-top-width: 0
+          padding-left: $ff-label-padding
+          padding-right: $ff-label-padding
 
   input
 
@@ -151,10 +154,16 @@
     @extend input
     height: auto
 
-  .form-group
+  legend
+    font-size: inherit
+    color: $ff-legend-color
+    margin-bottom: $ff-legend-margin-bottom
+    text-align: $ff-legend-text-align
+
+  .form-group, fieldset
     +clearfix
     display: block
-    margin-bottom: $ff-field-margin
+    margin-bottom: $ff-field-margin-bottom
 
     label
       @if $ff-group-stacked
@@ -238,12 +247,12 @@
 
 
     &.checkbox-group, &.radio-group
-      @if $ff-label-position == 'left'
-        padding-left: $ff-label-width
       label
         float: left
         width: (100 / $ff-check-radio-columns) * 1%
-        margin-bottom: $ff-field-margin
+        margin-bottom: $ff-field-margin-bottom / 2
+        @if $ff-label-position == 'left'
+          padding-left: $ff-label-width
         &:before, .label
           background: transparent
           display: inline-block
@@ -254,6 +263,9 @@
           float: none
           line-height: 1em
           padding: 0 $ff-label-padding
+          cursor: pointer
+          &:hover
+            cursor: pointer
         &:after, span.help-block
           display: none
       input
