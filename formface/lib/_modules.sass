@@ -160,9 +160,10 @@
     margin-bottom: $ff-legend-margin-bottom
     text-align: $ff-legend-text-align
 
-  .form-group, fieldset
+
+
+  fieldset
     +clearfix
-    display: block
     margin-bottom: $ff-field-margin-bottom
 
     label
@@ -292,6 +293,10 @@
       input
         float: left
         width: auto
+
+  @if $ff-use-twitter-bootstrap
+    .form-group
+      @extend fieldset
 
   select
     @if $ff-label-position == 'left'
