@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FormFace</title>
+    <link rel="stylesheet" href="general.css">
+    <link rel="stylesheet" href="formface.css">
+  </head>
+  <body>
+    <div id="content" class="container">
+      <h1>FormFace</h1>
+      <div class="form-face">
+        <fieldset>
+          <legend>Sign Up</legend>
+          <label data-label="Username" data-help="Enter your username">
+            <input type="text" placeholder="Username" id="username">
+          </label>
+          <label data-label="Password" data-help="Enter your password">
+            <input type="password" placeholder="Password" id="password">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Info</legend>
+          <label data-label="First Name" data-help="Your First Name">
+            <input type="text" placeholder="First Name" id="first-name">
+          </label>
+          <label data-label="Last Name" data-help="Your Last Name">
+            <input type="text" placeholder="Last Name" id="last-name">
+          </label>
+          <label data-label="Email" data-help="Your Email Address">
+            <input type="email" placeholder="Email Address" id="email">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>Address</legend>
+          <label data-label="Street" data-help="Your Street Address">
+            <input type="text" placeholder="Street" id="street">
+          </label>
+          <label data-label="City" data-help="Your City">
+            <input type="text" placeholder="City" id="city">
+          </label>
+          <label data-label="Zip" data-help="Enter your zip">
+            <input type="number" placeholder="Zip" id="zip">
+          </label>
+        </fieldset>
+        <fieldset>
+          <legend>About</legend>
+          <label data-label="About" data-help="Tell us about yourself">
+            <textarea placeholder="About You"></textarea>
+          </label>
+        </fieldset>
+        <input type="submit" value="Submit">
+      </div>
+    </div>
+  </body>
+</html>
