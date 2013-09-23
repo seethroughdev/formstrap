@@ -4,5 +4,28 @@
     box-shadow: #{$ff-state-shadow} rgba($color, 0.55)
   background-color: lighten($color, 55%)
 
+@mixin label($media)
+  @if $ff-label-position == $media
+    @content
+
+@mixin break($media)
+  @if $media == mobile-only
+    @media screen and (max-width:$break-small)
+      @content
+
+  @else if $media == small
+    @media screen and (min-width:$break-small +1)
+      @content
+
+  @else if $media == medium
+    @media screen and (min-width:$break-medium +1)
+      @content
+
+  @else if $media == large
+    @media screen and (min-width:$break-large +1)
+      @content
+
+
 // inner vars
 $ff-label-total-offset: $ff-input-padding-vertical + $ff-label-offset
+
