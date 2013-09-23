@@ -1,13 +1,14 @@
 .form-face
   input[type="submit"], input[type="button"]
     background: $ff-submit-bg
-    cursor: pointer
-    -webkit-appearance: button
+    font-size: $ff-submit-font-size
     color: $ff-submit-color
+    text-transform: $ff-submit-text-transform
     border-radius: $ff-input-round
     box-shadow: $ff-submit-box-shadow
     +border
-    font-size: $ff-submit-font-size
+    -webkit-appearance: button
+    cursor: pointer
 
     +transition(background 100ms linear)
 
