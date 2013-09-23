@@ -12,13 +12,13 @@
       color: $ff-help-color
       font-size: $ff-help-size
       text-align: $ff-help-align
-      +label('none')
+      +label(none)
         margin-right: 0
         margin-left: 0
-      +label('left')
+      +label(left)
         padding-left: $ff-input-padding-horizontal
         margin-left: $ff-label-width
-      +label('right')
+      +label(right)
         padding-left: $ff-input-padding-horizontal
         margin-right: $ff-label-width
         margin-left: 0
@@ -44,10 +44,13 @@
         text-transform: lowercase
 
       // set label position
-      +label('right')
+      +label(left)
+        padding: $ff-label-total-offset $ff-label-padding $ff-label-total-offset 0
+        float: left
+      +label(right)
         padding: $ff-label-total-offset 0 $ff-label-total-offset $ff-label-padding
         float: right
-      +label('top')
+      +label(top)
         display: block
         width: 100%
       +label('bottom')
@@ -55,43 +58,32 @@
         position: relative
         width: 100%
         top: $ff-input-height + $ff-input-height/3
-      +label('none')
+      +label(none)
         display: none
         opacity: 0
-      +label('left')
-        padding: $ff-label-total-offset $ff-label-padding $ff-label-total-offset 0
-        float: left
 
       @if $ff-label-cap
         background: $ff-label-cap-color
-        border-style: $ff-input-border-style
-        border-width: $ff-input-border-width
-        border-color: $ff-input-border-color
-        padding-left: 0
-        padding-right: 0
+        +border()
 
-        +label('left')
+        +label(left)
           +border-radius(left)
           border-right-width: 0
 
-        +label('right')
+        +label(right)
           +border-radius(right)
           border-left-width: 0
 
-        +label('top')
+        +label(top)
           +border-radius(top)
           border-bottom-width: 0
-          padding-left: $ff-label-padding
-          padding-right: $ff-label-padding
 
         +label('bottom')
           +border-radius(bottom)
           border-top-width: 0
-          padding-left: $ff-label-padding
-          padding-right: $ff-label-padding
 
       @if $ff-group-stacked
-        +label('top')
+        +label(top)
           display: none
 
   input
@@ -104,35 +96,27 @@
     border-radius: $ff-input-round
     vertical-align: middle
     background-color: $ff-input-bg
-    border-style: $ff-input-border-style
-    border-width: $ff-input-border-width
-    border-color: $ff-input-border-color
+    +border()
     box-shadow: $ff-input-box-shadow
     +transition(all, ease-in-out, 0.15s)
 
     // set width based on label
-    +label('left')
+    +label(left)
       width: $ff-input-width - $ff-label-width
 
-    +label('right')
+    +label(right)
       width: $ff-input-width - $ff-label-width
       float: left
 
-    +label('top')
-      width: $ff-input-width
-
-    +label('bottom')
-      width: $ff-input-width
-
-    +label('none')
+    @if $ff-label-position == top or $ff-label-position == bottom or $ff-label-position == none
       width: $ff-input-width
 
     @if $ff-label-cap
-      +label('left')
+      +label(left)
         +border-radius(right)
-      +label('right')
+      +label(right)
         +border-radius(left)
-      +label('top')
+      +label(top)
         +border-radius(bottom)
       +label('bottom')
         +border-radius(top)
@@ -152,7 +136,7 @@
     margin-bottom: $ff-legend-margin-bottom
     text-align: $ff-legend-text-align
 
-    +label('left')
+    +label(left)
       margin-left: $ff-label-width
       @if $ff-group-stacked
         margin-left: 0
@@ -173,69 +157,54 @@
             border-radius: 0
         &:first-of-type
           &:before, .label
-            +label('left')
+            +label(left)
               +border-radius(top-left)
-            +label('right')
+            +label(right)
               +border-radius(top-right)
-            +label('top')
+            +label(top)
               +border-radius(top)
 
         &:last-of-type
           &:before, .label
             border-bottom-width: $ff-input-border-width
-            +label('left')
+            +label(left)
               +border-radius(bottom-left)
 
-            +label('right')
+            +label(right)
               +border-radius(bottom-right)
 
       input
         @if $ff-group-stacked
           border-bottom-width: 0
           border-radius: 0
-          +label('top')
+          +label(top)
             border-top-width: $ff-input-border-width
       &:first-of-type
         input
           @if $ff-group-stacked
             @if $ff-label-cap
-              +label('left')
+              +label(left)
                 +border-radius(top-right)
-              +label('right')
+              +label(right)
                 +border-radius(top-left)
-              +label('none')
+              +label(none)
                 +border-radius(top)
             @else
-              +label('left')
-                +border-radius(top)
-              +label('right')
-                +border-radius(top)
-              +label('top')
-                +border-radius(top)
-              +label('none')
-                +border-radius(top)
-
+              +border-radius(top)
 
       &:last-of-type
         input
           @if $ff-group-stacked
             border-bottom-width: $ff-input-border-width
             @if $ff-label-cap
-              +label('left')
+              +label(left)
                 +border-radius(bottom-right)
-              +label('right')
+              +label(right)
                 +border-radius(bottom-left)
-              +label('none')
+              +label(none)
                 +border-radius(bottom)
             @else
-              +label('left')
-                +border-radius(bottom)
-              +label('right')
-                +border-radius(bottom)
-              +label('top')
-                +border-radius(bottom)
-              +label('none')
-                +border-radius(bottom)
+              +border-radius(bottom)
 
       input:focus, input:invalid, input:disabled
         border-bottom-width: $ff-input-border-width
@@ -249,7 +218,7 @@
         float: left
         width: (100 / $ff-check-radio-columns) * 1%
         margin-bottom: $ff-field-margin-bottom / 2
-        +label('left')
+        +label(left)
           padding-left: $ff-label-width
         &:before, .label
           background: transparent
@@ -275,5 +244,5 @@
       @extend fieldset
 
   select
-    +label('left')
+    +label(left)
       margin-left: $ff-label-width

@@ -3,19 +3,20 @@
     background: $ff-submit-bg
     cursor: pointer
     -webkit-appearance: button
-    width: $ff-width - $ff-label-width
     color: $ff-submit-color
     border-radius: $ff-input-round
     box-shadow: $ff-submit-box-shadow
-    border-width: $ff-submit-border-width
-    border-style: $ff-submit-border-style
-    border-color: $ff-submit-border-color
+    +border
     font-size: $ff-submit-font-size
 
     +transition(background 100ms linear)
 
-    @if $ff-label-position == 'left'
+    +label(left)
+      width: $ff-width - $ff-label-width
       margin-left: $ff-label-width
+
+    +label(right)
+      width: $ff-width - $ff-label-width
 
     &:hover
       background: $ff-submit-hover-bg

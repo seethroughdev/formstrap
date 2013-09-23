@@ -27,6 +27,8 @@
   @else if $pos == bottom-right
     border-radius: 0 0 $ff-input-round 0
 
+@mixin border()
+  border: $ff-input-border-width $ff-input-border-style $ff-input-border-color
 
 
 @mixin break($media)
@@ -49,4 +51,7 @@
 
 // inner vars
 $ff-label-total-offset: $ff-input-padding-vertical + $ff-label-offset
+
+@if $ff-label-position == top and $ff-group-stacked == true
+  $ff-label-cap: false
 
