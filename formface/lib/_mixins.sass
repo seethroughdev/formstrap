@@ -8,6 +8,27 @@
   @if $ff-label-position == $media
     @content
 
+// prevent border-radius confusion
+@mixin border-radius($pos)
+  @if $pos == top
+    border-radius: $ff-input-round $ff-input-round 0 0
+  @else if $pos == bottom
+    border-radius: 0 0 $ff-input-round $ff-input-round
+  @else if $pos == left
+    border-radius: $ff-input-round 0 0 $ff-input-round
+  @else if $pos == right
+    border-radius: 0 $ff-input-round $ff-input-round 0
+  @else if $pos == top-left
+    border-radius: $ff-input-round 0 0 0
+  @else if $pos == top-right
+    border-radius: 0 $ff-input-round 0 0
+  @else if $pos == bottom-left
+    border-radius: 0 0 0 $ff-input-round
+  @else if $pos == bottom-right
+    border-radius: 0 0 $ff-input-round 0
+
+
+
 @mixin break($media)
   @if $media == mobile-only
     @media screen and (max-width:$break-small)

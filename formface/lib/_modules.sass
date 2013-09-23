@@ -71,28 +71,28 @@
         padding-right: 0
 
         +label('left')
-          border-top-left-radius: $ff-input-round
-          border-bottom-left-radius: $ff-input-round
+          +border-radius(left)
           border-right-width: 0
 
         +label('right')
-          border-top-right-radius: $ff-input-round
-          border-bottom-right-radius: $ff-input-round
+          +border-radius(right)
           border-left-width: 0
 
         +label('top')
-          border-top-right-radius: $ff-input-round
-          border-top-left-radius: $ff-input-round
+          +border-radius(top)
           border-bottom-width: 0
           padding-left: $ff-label-padding
           padding-right: $ff-label-padding
 
         +label('bottom')
-          border-bottom-right-radius: $ff-input-round
-          border-bottom-left-radius: $ff-input-round
+          +border-radius(bottom)
           border-top-width: 0
           padding-left: $ff-label-padding
           padding-right: $ff-label-padding
+
+      @if $ff-group-stacked
+        +label('top')
+          display: none
 
   input
 
@@ -123,25 +123,19 @@
 
     +label('bottom')
       width: $ff-input-width
-      position: relative
-      top: -($ff-input-height + $ff-input-height/3)
+
+    +label('none')
+      width: $ff-input-width
 
     @if $ff-label-cap
       +label('left')
-        border-top-left-radius: 0
-        border-bottom-left-radius: 0
-
+        +border-radius(right)
       +label('right')
-        border-top-right-radius: 0
-        border-bottom-right-radius: 0
-
+        +border-radius(left)
       +label('top')
-        border-top-right-radius: 0
-        border-top-left-radius: 0
-
+        +border-radius(bottom)
       +label('bottom')
-        border-bottom-right-radius: 0
-        border-bottom-left-radius: 0
+        +border-radius(top)
 
     +placeholder
       color: $ff-placeholder-color
@@ -180,37 +174,20 @@
         &:first-of-type
           &:before, .label
             +label('left')
-              border-top-left-radius: $ff-input-round
-              border-top-right-radius: 0
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: 0
-
+              +border-radius(top-left)
             +label('right')
-              border-top-left-radius: 0
-              border-top-right-radius: $ff-input-round
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: 0
-
+              +border-radius(top-right)
             +label('top')
-              border-top-left-radius: $ff-input-round
-              border-top-right-radius: $ff-input-round
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: 0
+              +border-radius(top)
 
         &:last-of-type
           &:before, .label
             border-bottom-width: $ff-input-border-width
             +label('left')
-              border-top-left-radius: 0
-              border-top-right-radius: 0
-              border-bottom-left-radius: $ff-input-round
-              border-bottom-right-radius: 0
+              +border-radius(bottom-left)
 
             +label('right')
-              border-top-left-radius: 0
-              border-top-right-radius: 0
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: $ff-input-round
+              +border-radius(bottom-right)
 
       input
         @if $ff-group-stacked
@@ -221,47 +198,44 @@
       &:first-of-type
         input
           @if $ff-group-stacked
-            +label('left')
-              border-top-left-radius: 0
-              border-top-right-radius: $ff-input-round
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: 0
-
-            +label('right')
-              border-top-left-radius: $ff-input-round
-              border-top-right-radius: 0
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: 0
-
-            +label('none')
-              border-top-left-radius: $ff-input-round
-              border-top-right-radius: $ff-input-round
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: 0
+            @if $ff-label-cap
+              +label('left')
+                +border-radius(top-right)
+              +label('right')
+                +border-radius(top-left)
+              +label('none')
+                +border-radius(top)
+            @else
+              +label('left')
+                +border-radius(top)
+              +label('right')
+                +border-radius(top)
+              +label('top')
+                +border-radius(top)
+              +label('none')
+                +border-radius(top)
 
 
       &:last-of-type
         input
           @if $ff-group-stacked
             border-bottom-width: $ff-input-border-width
-
-            +label('left')
-              border-top-left-radius: 0
-              border-top-right-radius: 0
-              border-bottom-left-radius: 0
-              border-bottom-right-radius: $ff-input-round
-
-            +label('right')
-              border-top-left-radius: 0
-              border-top-right-radius: 0
-              border-bottom-left-radius: $ff-input-round
-              border-bottom-right-radius: 0
-
-            +label('none')
-              border-top-left-radius: 0
-              border-top-right-radius: 0
-              border-bottom-left-radius: $ff-input-round
-              border-bottom-right-radius: $ff-input-round
+            @if $ff-label-cap
+              +label('left')
+                +border-radius(bottom-right)
+              +label('right')
+                +border-radius(bottom-left)
+              +label('none')
+                +border-radius(bottom)
+            @else
+              +label('left')
+                +border-radius(bottom)
+              +label('right')
+                +border-radius(bottom)
+              +label('top')
+                +border-radius(bottom)
+              +label('none')
+                +border-radius(bottom)
 
       input:focus, input:invalid, input:disabled
         border-bottom-width: $ff-input-border-width
