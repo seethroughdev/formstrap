@@ -5,6 +5,10 @@
       border-bottom-width: $ff-input-border-width
       z-index: 10
 
+      @if $ff-group-stacked
+        // bug for stacked forms that have full border on state
+        // margin-bottom: -1px
+
     &:focus
       +color-state($ff-state-focus)
 

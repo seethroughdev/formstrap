@@ -6,7 +6,6 @@
     margin-bottom: $ff-field-margin-bottom
 
     span.help-text
-      content: attr(data-help)
       display: block
       padding-top: 5px
       color: $ff-help-color
@@ -28,10 +27,9 @@
         display: none
 
     .label-text
-      content: attr(data-label)
-      // +inline-block
       width: $ff-label-width
-      line-height: $ff-input-height
+      line-height: $ff-label-total-offset
+      height: $ff-label-total-offset
       text-align: $ff-label-align
       font-size: $ff-label-font-size
       color: $ff-label-color
@@ -47,11 +45,11 @@
       // set label padding
       @if $ff-label-position == left or $ff-label-position == right
         @if $ff-label-align == left
-          padding: $ff-label-total-offset 0 $ff-label-total-offset $ff-label-padding
+          padding: 0 0 0 $ff-label-padding
         @if $ff-label-align == center
           padding: $ff-label-total-offset 0
         @if $ff-label-align == right
-          padding: $ff-label-total-offset $ff-label-padding $ff-label-total-offset 0
+          padding: 0 $ff-label-padding 0 0
 
       // set label position
       +label(left)
@@ -109,8 +107,9 @@
     position: relative
     color: $ff-input-color
     font-size: $ff-input-font-size
-    padding: $ff-input-padding-vertical $ff-input-padding-horizontal
-    line-height: $ff-input-height
+    padding-left: $ff-input-padding-horizontal
+    padding-right: $ff-input-padding-horizontal
+    height: $ff-input-height
     border-radius: $ff-input-round
     vertical-align: middle
     background-color: $ff-input-bg
@@ -158,6 +157,10 @@
   textarea
     @extend input
     height: auto
+    line-height: $ff-input-font-size * 1.25
+    padding-top: .5em
+    padding-bottom: .5em
+    min-height: $ff-input-height
 
   legend
     font-size: inherit
@@ -250,9 +253,9 @@
           @if $ff-label-cap == false
             border-radius: $ff-input-round
 
-      input:focus, input:invalid, input:disabled
-        border-bottom-width: $ff-input-border-width
-        z-index: 10
+      // input:focus, input:invalid, input:disabled
+      //   border-bottom-width: $ff-input-border-width
+      //   z-index: 10
 
     &.checkbox-group, &.radio-group
       label
@@ -269,7 +272,6 @@
           border-radius: 0
           width: auto
           float: none
-          line-height: 1em
           padding: 0 $ff-label-padding
           cursor: pointer
           &:hover
