@@ -5,7 +5,7 @@
     display: block
     margin-bottom: $ff-field-margin-bottom
 
-    &:after, span.help-block
+    span.help-text
       content: attr(data-help)
       display: block
       padding-top: 5px
@@ -27,7 +27,7 @@
       @if $ff-group-stacked
         display: none
 
-    &:before, .label
+    .label-text
       content: attr(data-label)
       // +inline-block
       width: $ff-label-width
@@ -178,14 +178,14 @@
     label
       @if $ff-group-stacked
         margin-bottom: 0
-        .help-block
+        .help-text
           display: none
         @if $ff-label-cap
-          &:before, .label
+          .label-text
             border-bottom-width: 0
             border-radius: 0
         &:first-of-type
-          &:before, .label
+          .label-text
             +label(left)
               +border-radius(top-left)
             +label(right)
@@ -194,7 +194,7 @@
               +border-radius(top)
 
         &:last-of-type
-          &:before, .label
+          .label-text
             border-bottom-width: $ff-input-border-width
             +label(left)
               +border-radius(bottom-left)
@@ -239,7 +239,7 @@
         border-bottom-width: $ff-input-border-width
         z-index: 10
 
-      // &:after, span.help-block
+      // span.help-text
 
 
     &.checkbox-group, &.radio-group
@@ -249,7 +249,7 @@
         margin-bottom: $ff-field-margin-bottom / 2
         +label(left)
           padding-left: $ff-label-width
-        &:before, .label
+        .label-text
           background: transparent
           display: inline-block
           opacity: 1
@@ -262,7 +262,7 @@
           cursor: pointer
           &:hover
             cursor: pointer
-        &:after, span.help-block
+        span.help-text
           display: none
       input
         float: left
@@ -271,6 +271,8 @@
   @if $ff-use-twitter-bootstrap
     .form-group
       @extend fieldset
+    .help-block
+      @extend .help-text
 
   select
     +label(left)
