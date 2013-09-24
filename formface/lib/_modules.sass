@@ -234,13 +234,25 @@
                 +border-radius(bottom)
             @else
               +border-radius(bottom)
+      &:first-of-type:last-of-type
+        .label-text
+          @if $ff-label-cap
+            +label(left)
+              +border-radius(left)
+            +label(right)
+              +border-radius(right)
+        input
+          @if $ff-label-cap
+            +label(left)
+              +border-radius(right)
+            +label(right)
+              +border-radius(left)
+          @if $ff-label-cap == false
+            border-radius: $ff-input-round
 
       input:focus, input:invalid, input:disabled
         border-bottom-width: $ff-input-border-width
         z-index: 10
-
-      // span.help-text
-
 
     &.checkbox-group, &.radio-group
       label
