@@ -1,8 +1,36 @@
 @mixin color-state($color)
-  border-color: rgba($color, 0.85)
-  @if $ff-state-style == 'shadow'
-    box-shadow: #{$ff-state-shadow} rgba($color, 0.55)
-  background-color: lighten($color, 55%)
+
+  // preventing color-state on required fields
+  @if $color == return
+    border-color: $ff-input-border-color
+    @if $ff-state-label-change-color
+      ~ .label-text
+        color: $ff-label-color
+        @if $ff-label-cap
+          background: $ff-label-cap-bg
+          border-color: $ff-input-border-color
+    @if $ff-state-help-change-color
+      ~ .help-text
+        color: $ff-help-color
+
+    // apply color-state to everything else
+  @else
+    border-color: rgba($color, 0.85)
+    @if $ff-state-style == 'shadow'
+      box-shadow: #{$ff-state-shadow} rgba($color, 0.55)
+    background-color: lighten($color, 55%)
+    @if $ff-state-help-change-color
+      ~ .help-text
+        color: $color
+    @if $ff-state-label-change-color
+      ~ .label-text
+        @if $ff-label-cap
+          background: $color
+          @if lightness($color) > 50%
+            color: white
+        @else
+          color: $color
+
 
 @mixin label($media)
   @if $ff-label-position == $media
