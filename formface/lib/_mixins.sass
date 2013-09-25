@@ -3,6 +3,7 @@
   // preventing color-state on required fields
   @if $color == return
     border-color: $ff-input-border-color
+    background: $ff-input-bg
     @if $ff-state-label-change-color
       ~ .label-text
         color: $ff-label-color
@@ -12,13 +13,22 @@
     @if $ff-state-help-change-color
       ~ .help-text
         color: $ff-help-color
+    @if $ff-state-style == shadow
+      box-shadow: $ff-input-box-shadow
+    @else if $ff-state-style == border
+      border-color: $ff-input-border-color
+
+    &:focus
+      background: $ff-state-focus-bg
 
     // apply color-state to everything else
   @else
-    border-color: rgba($color, 0.85)
-    @if $ff-state-style == 'shadow'
+    @if $ff-state-style == shadow
       box-shadow: #{$ff-state-shadow} rgba($color, 0.55)
-    background-color: lighten($color, 55%)
+    @else if $ff-state-style == border
+      border-color: rgba($color, 0.85)
+
+
     @if $ff-state-help-change-color
       ~ .help-text
         color: $color

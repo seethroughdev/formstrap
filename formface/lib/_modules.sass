@@ -36,20 +36,15 @@
       font-family: $ff-label-font-family
       font-weight: $ff-label-font-weight
       text-transform: $ff-label-text-transform
-      // set label case
-      @if $ff-label-case == 'upper'
-        text-transform: uppercase
-      @else if $ff-label-case == 'lower'
-        text-transform: lowercase
 
       // set label padding
       @if $ff-label-position == left or $ff-label-position == right
         @if $ff-label-align == left
-          padding: 0 0 0 $ff-label-padding
+          padding: 0 0 0 $ff-label-padding-horizontal
         @if $ff-label-align == center
           padding: 0
         @if $ff-label-align == right
-          padding: 0 $ff-label-padding 0 0
+          padding: 0 $ff-label-padding-horizontal 0 0
 
       // set label position
       +label(left)
@@ -100,9 +95,9 @@
         position: absolute
         z-index: 20
         +label(left)
-          left: $ff-label-padding
+          left: $ff-label-padding-horizontal
         +label(right)
-          right: $ff-label-padding
+          right: $ff-label-padding-horizontal
 
   input
 
@@ -270,13 +265,17 @@
           padding-left: $ff-label-width
         .label-text
           background: transparent
+          text-align: left
           display: inline-block
           opacity: 1
           border: 0
           border-radius: 0
           width: auto
           float: none
-          padding: 0 $ff-label-padding
+          padding: 0 $ff-label-padding-horizontal
+          position: relative
+          right: 0
+          left: 0
           cursor: pointer
           &:hover
             cursor: pointer

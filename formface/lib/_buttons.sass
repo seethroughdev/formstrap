@@ -10,13 +10,15 @@
     border: $ff-submit-border-width $ff-submit-border-style $ff-submit-border-color
     -webkit-appearance: button
     cursor: pointer
+    padding: 0
     @extend .transition
     +label(left)
       width: $ff-width - $ff-label-width
       margin-left: $ff-label-width
 
     +label(right)
-      width: $ff-width - $ff-label-width
+      @if $ff-label-inside == false
+        width: $ff-width - $ff-label-width
 
     &:hover
       background: $ff-submit-hover-bg
