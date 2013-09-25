@@ -7,7 +7,7 @@
 
     span.help-text
       display: block
-      padding-top: 5px
+      padding-top: $ff-input-height *1.15
       color: $ff-help-color
       font-size: $ff-help-size
       text-align: $ff-help-align
@@ -34,8 +34,8 @@
       font-size: $ff-label-font-size
       color: $ff-label-color
       font-family: $ff-label-font-family
+      font-weight: $ff-label-font-weight
       text-transform: $ff-label-text-transform
-
       // set label case
       @if $ff-label-case == 'upper'
         text-transform: uppercase
@@ -47,7 +47,7 @@
         @if $ff-label-align == left
           padding: 0 0 0 $ff-label-padding
         @if $ff-label-align == center
-          padding: $ff-label-total-offset 0
+          padding: 0
         @if $ff-label-align == right
           padding: 0 $ff-label-padding 0 0
 
@@ -61,7 +61,7 @@
       +label(top)
         display: block
         width: 100%
-      +label('bottom')
+      +label(bottom)
         display: block
         position: relative
         width: 100%
@@ -72,6 +72,7 @@
 
       @if $ff-label-cap
         background: $ff-label-cap-color
+        box-shadow: $ff-label-cap-box-shadow
         +border()
 
         +label(left)
@@ -115,7 +116,6 @@
     background-color: $ff-input-bg
     +border()
     box-shadow: $ff-input-box-shadow
-    +transition(all, ease-in-out, 0.15s)
 
     // set width based on label
     +label(left)
@@ -126,6 +126,8 @@
       float: left
       @if $ff-label-inside
         float: none
+
+    +label(top)
 
     @if $ff-label-position == top or $ff-label-position == bottom or $ff-label-position == none
       width: $ff-input-width
@@ -157,13 +159,14 @@
   textarea
     @extend input
     height: auto
-    line-height: $ff-input-font-size * 1.25
+    line-height: 1.25em
     padding-top: .5em
     padding-bottom: .5em
     min-height: $ff-input-height
 
   legend
-    font-size: inherit
+    font-size: $ff-legend-font-size
+    font-weight: $ff-legend-font-weight
     color: $ff-legend-color
     margin-bottom: $ff-legend-margin-bottom
     text-align: $ff-legend-text-align
@@ -176,7 +179,7 @@
 
   fieldset
     +clearfix
-    margin-bottom: $ff-field-margin-bottom
+    margin-bottom: $ff-group-margin-bottom
 
     label
       @if $ff-group-stacked
@@ -276,6 +279,7 @@
           cursor: pointer
           &:hover
             cursor: pointer
+            color: $ff-check-radio-hover-color
         span.help-text
           display: none
       input

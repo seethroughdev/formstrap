@@ -2,16 +2,15 @@
   input[type="submit"], input[type="button"]
     background: $ff-submit-bg
     font-size: $ff-submit-font-size
+    font-weight: $ff-submit-font-weight
     color: $ff-submit-color
     text-transform: $ff-submit-text-transform
     border-radius: $ff-input-round
     box-shadow: $ff-submit-box-shadow
-    +border
+    border: $ff-submit-border-width $ff-submit-border-style $ff-submit-border-color
     -webkit-appearance: button
     cursor: pointer
-
-    +transition(background 100ms linear)
-
+    @extend .transition
     +label(left)
       width: $ff-width - $ff-label-width
       margin-left: $ff-label-width
@@ -21,3 +20,4 @@
 
     &:hover
       background: $ff-submit-hover-bg
+      color: $ff-submit-hover-color
