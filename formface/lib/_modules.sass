@@ -5,9 +5,9 @@
     display: block
     margin-bottom: $ff-field-margin-bottom
 
-    span.help-text
+    .help-text
       display: block
-      padding-top: $ff-input-height *1.15
+      line-height: $ff-label-total-offset
       color: $ff-help-color
       font-size: $ff-help-size
       text-align: $ff-help-align
@@ -25,11 +25,12 @@
         display: none
       @if $ff-group-stacked
         display: none
+      @if $ff-help-display and $ff-label-position == bottom
+        float: right
 
     .label-text
       width: $ff-label-width
       line-height: $ff-label-total-offset
-      height: $ff-label-total-offset
       text-align: $ff-label-align
       font-size: $ff-label-font-size
       color: $ff-label-color
@@ -62,8 +63,8 @@
       +label(bottom)
         display: block
         position: relative
-        width: 100%
-        top: $ff-input-height + $ff-input-height/3
+        @if $ff-help-display
+          float: left
       +label(none)
         display: none
         opacity: 0
@@ -284,6 +285,10 @@
             position: relative
             top: 0
             left: 10px
+          +label(bottom)
+            position: relative
+            top: 0
+            left: 10px
           &:hover
             cursor: pointer
             color: $ff-check-radio-hover-color
@@ -293,6 +298,10 @@
         float: left
         width: auto
         +label(top)
+          margin-top: 0
+          border-top: 0
+          box-shadow: none
+        +label(bottom)
           margin-top: 0
           border-top: 0
           box-shadow: none
