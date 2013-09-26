@@ -3,6 +3,7 @@
     &:focus, &:disabled, &:required, &:invalid, &:in-range, &:read-only
       outline: 0
       border-bottom-width: $ff-input-border-width
+      border-top-width: 0
       z-index: 10
 
     &:focus
@@ -34,3 +35,8 @@
       @if $ff-state-change-on-success
         &:focus
           +color-state($ff-state-success)
+
+  label:first-of-type
+    input
+      &:focus, &:disabled, &:required, &:invalid, &:in-range, &:read-only
+        border-top-width: $ff-input-border-width

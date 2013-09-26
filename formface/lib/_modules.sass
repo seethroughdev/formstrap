@@ -199,6 +199,7 @@
     margin-bottom: $ff-group-margin-bottom
     @if $ff-group-bg != inherit
       background: $ff-group-bg
+      border-radius: $ff-input-round
     padding: $ff-group-padding
 
     label
@@ -293,6 +294,7 @@
           display: inline-block
           opacity: 1
           border: 0
+          color: $ff-check-radio-color
           border-radius: 0
           width: auto
           float: none
@@ -301,6 +303,7 @@
           right: 0
           left: 0
           cursor: pointer
+          font-family: inherit
           +label(top)
             position: relative
             top: 0
