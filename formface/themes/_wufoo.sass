@@ -24,7 +24,9 @@ $black: hsla(0.00, 0.00%, 0.00%, 1.00)
 
 // you can adjust the primary color here, or edit below:
 $primary: $green
-
+$light: $lt-grey
+$medium: $grey
+$dark: $dk-grey
 
 // admin settings, change these if you need to.  Otherwise, leave it!
 
@@ -68,21 +70,22 @@ $ff-label-offset: 0               // if you do use em for $ff-input-height, you 
 
 
 $ff-label-cap: false               // add containers around your labels
-$ff-label-cap-bg: lighten($dk-grey, 3%)
+$ff-label-cap-bg: lighten($dark, 3%)
 $ff-label-cap-box-shadow: none
 $ff-label-inside: false
 
 // inputs
 $ff-input-font-size: inherit
+$ff-input-font-weight: normal
 // use px if you can!  browsers want input height to be in px
 $ff-input-height: 30px
 $ff-input-padding-horizontal: 5px
 $ff-input-round: 0
-$ff-input-color: $dk-grey
+$ff-input-color: $dark
 $ff-input-bg: white
 $ff-input-border-style: solid
 $ff-input-border-width: 1px
-$ff-input-border-color: $grey
+$ff-input-border-color: $medium
 $ff-input-box-shadow: inset 0px 1px 0px 0px #7c7c7c
 
 
@@ -118,23 +121,23 @@ $ff-legend-font-weight: normal
 
 // Help block styles.  *These will auto-hide on stacked fields
 $ff-help-display: false
-$ff-help-color: darken($grey, 50%)
+$ff-help-color: darken($medium, 50%)
 $ff-help-size: .9em
 $ff-help-align: left
 
 
 // placeholder
 $ff-placeholder-show: false
-$ff-placeholder-color: $grey
+$ff-placeholder-color: $medium
 
 
 // submit button
-$ff-submit-bg: $lt-grey
+$ff-submit-bg: $light
 $ff-submit-color: $black
 $ff-submit-box-shadow: inset 0 1px 0 1px rgba(255,255,255,.3)
 $ff-submit-border-width: 1px
 $ff-submit-border-style: solid
-$ff-submit-border-color: $dk-grey
+$ff-submit-border-color: $dark
 $ff-submit-font-size: 1.3em
 $ff-submit-height: 3em
 $ff-submit-hover-bg: $primary
