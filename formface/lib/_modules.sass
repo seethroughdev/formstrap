@@ -56,6 +56,9 @@
       +label(top)
         display: block
         width: 100%
+        position: absolute
+        top: 0
+
       +label(bottom)
         display: block
         position: relative
@@ -123,6 +126,7 @@
         float: none
 
     +label(top)
+      margin-top: $ff-label-total-offset
 
     @if $ff-label-position == top or $ff-label-position == bottom or $ff-label-position == none
       width: $ff-input-width
@@ -276,6 +280,10 @@
           right: 0
           left: 0
           cursor: pointer
+          +label(top)
+            position: relative
+            top: 0
+            left: 10px
           &:hover
             cursor: pointer
             color: $ff-check-radio-hover-color
@@ -284,6 +292,10 @@
       input
         float: left
         width: auto
+        +label(top)
+          margin-top: 0
+          border-top: 0
+          box-shadow: none
 
   @if $ff-use-twitter-bootstrap
     .form-group
@@ -292,5 +304,6 @@
       @extend .help-text
 
   select
+    margin-bottom: $ff-field-margin-bottom
     +label(left)
       margin-left: $ff-label-width
