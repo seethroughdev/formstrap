@@ -4,7 +4,7 @@
  * @seethroughtrees
  *
  * http://formstrapcss.com
- * Firefox Theme v1.1
+ * Flat Theme
  *
  * I know there's lots of variables in here, but only change what you need to.
  * And trust me.  Its way easier than writing the CSS!
@@ -12,14 +12,18 @@
 
 // Set your color variables here, you can add or edit any way you see fit, just be sure to use update the variables below in the settings.
 
-$blue: hsla(198.33, 100.00%, 53.14%, 1.00)
+$blue: hsla(178.67, 62.21%, 42.55%, 1.00)
 $red: hsla(352.44, 73.41%, 66.08%, 1.00)
 $green: hsla(127.02, 80.28%, 41.76%, 1.00)
-$orange: hsla(19.21, 79.61%, 50.00%, 1.00)
-$grey: hsla(0.00, 0.00%, 93.33%, 1.00)
-$lt-grey: lighten($grey, 5%)
-$dk-grey: rgba(23, 51, 78, 0.15)
-$black: rgb(0,0,0)
+$yellow: hsla(37.22, 66.95%, 53.73%, 1.00)
+$pink: hsla(344.47, 100.00%, 61.37%, 1.00)
+$grey: hsla(0.00, 15.56%, 90.18%, 1.00)
+$lt-grey: hsla(220.00, 15.79%, 99%, 1.00)
+$dk-grey: hsla(0.00, 15.56%, 75.18%, 1.00)
+$black: hsla(220.00, 15.00%, 7.84%, 1.00)
+
+// you can adjust the primary color here, or edit below:
+$primary: $blue
 
 
 // admin settings, change these if you need to.  Otherwise, leave it!
@@ -36,103 +40,106 @@ $ff-use-twitter-bootstrap: false
 
 // General form settings
 $ff-width: 100%
-$ff-form-bg: $grey              // Leave transparent to inherit background
+$ff-form-bg: $lt-grey              // Leave transparent to inherit background
 $ff-padding: 2em 6em            // Form padding
 $ff-font-family: 'Open Sans', sans-serif
-$ff-font-size: 1.2em
-$ff-color: inherit
+$ff-font-size: 1.1em
+$ff-color: $dk-grey
 
 // groups
 $ff-group-stacked: false        // Enter true to stack inputs in fieldsets
-$ff-group-margin-bottom: 2em
+$ff-group-margin-bottom: 1em
 
 // fields
-$ff-field-margin-bottom: .75em
+$ff-field-margin-bottom: .5em
 
 
 // labels
-$ff-label-width: 28%
-$ff-label-position: right         // left/right/top/bottom/none
+$ff-label-width: 15%
+$ff-label-position: left         // left/right/top/bottom/none
 $ff-label-align: center           // left/right/center
-$ff-label-font-size: inherit
-$ff-label-font-family: inherit    // use this for font-icons!
-$ff-label-font-weight: bold
-$ff-label-color: inherit
+$ff-label-font-size: 1.2em
+$ff-label-font-family: 'icomoon'    // use this for font-icons!
+$ff-label-font-weight: normal
+$ff-label-color: $dk-grey
 $ff-label-text-transform: inherit // uppercase/lowercase/none
-$ff-label-padding-horizontal: 15px
+$ff-label-padding-horizontal: 18px
 $ff-label-offset: 0               // if you do use em for $ff-input-height, you can tweak the label height here
 
-$ff-label-cap: true               // add containers around your labels
-$ff-label-cap-bg: $lt-grey
-$ff-label-cap-box-shadow: inset 0 2px 10px 2px rgba(255,255,255,.2)
-$ff-label-inside: false
+$ff-label-cap: false               // add containers around your labels
+$ff-label-cap-bg: lighten($dk-grey, 3%)
+$ff-label-cap-box-shadow: none
+$ff-label-inside: true
 
 // inputs
 $ff-input-font-size: inherit
 // use px if you can!  browsers want input height to be in px
-$ff-input-height: 35px
-$ff-input-padding-horizontal: 8px
-$ff-input-round: 4px
-$ff-input-bg: #fff
+$ff-input-height: 50px
+$ff-input-padding-horizontal: 20px
+$ff-input-round: 1px
+$ff-input-color: $black
+$ff-input-bg: $lt-grey
 $ff-input-border-style: solid
-$ff-input-border-width: 1px
-$ff-input-border-color: $dk-grey
-$ff-input-box-shadow: inset 0 1px 2px 2px rgba(0,0,0,.03)
-$ff-input-color: inherit
+$ff-input-border-width: 2px
+$ff-input-border-color: $grey
+$ff-input-box-shadow: inset 0px 1px 1px 0px rgba(255,255,255,.04)
 
 
 // checkboxes and radios
 $ff-check-radio-columns: 3         // how many should fit across
-$ff-check-radio-hover-color: $orange
+$ff-check-radio-hover-color: $primary
 
 
 // input state
-$ff-state-style: outline                // 'outline/shadow'
+$ff-state-style: none                // 'outline/shadow'
 $ff-state-shadow: inset 0 0 3px 2px     // if 'shadow' is used
-$ff-state-focus: $blue
-$ff-state-focus-bg: inherit
+$ff-state-focus: $primary
+$ff-state-focus-bg: white
 $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
-$ff-state-success: $green
+$ff-state-success: $blue
 
 // these will change text color to state colors if html5 is used
 $ff-state-help-change-color: true
 $ff-state-label-change-color: true
 $ff-state-change-on-success: false
 
+
+
 // legend
-$ff-legend-font-size: 1.2em
-$ff-legend-color: inherit
+$ff-legend-font-size: 1.5em
+$ff-legend-color: $primary
 $ff-legend-margin-bottom: .5em
 $ff-legend-text-align: left
-$ff-legend-font-weight: bold
+$ff-legend-font-weight: normal
 
 
 // Help block styles.  *These will auto-hide on stacked fields
-$ff-help-display: true
+$ff-help-display: false
 $ff-help-color: darken($grey, 50%)
 $ff-help-size: .9em
 $ff-help-align: left
 
 
 // placeholder
-$ff-placeholder-show: false
-$ff-placeholder-color: inherit
+$ff-placeholder-show: true
+$ff-placeholder-color: $grey
 
 
 // submit button
-$ff-submit-bg: $dk-grey
-$ff-submit-color: inherit
-$ff-submit-box-shadow: none
+$ff-submit-bg: $primary
+$ff-submit-color: white
+$ff-submit-box-shadow: inset 0 1px 0 1px rgba(255,255,255,.3)
 $ff-submit-border-width: 0
 $ff-submit-border-style: solid
 $ff-submit-border-color: transparent
-$ff-submit-font-size: inherit
-$ff-submit-hover-bg: $blue
-$ff-submit-hover-color: white
-$ff-submit-text-transform: inherit
-$ff-submit-font-weight: inherit
+$ff-submit-font-size: 1.3em
 $ff-submit-height: 3em
+$ff-submit-hover-bg: lighten($blue, 5%)
+$ff-submit-hover-color: white
+$ff-submit-text-transform: none
+$ff-submit-font-weight: normal
+
 
 // responsive
 $break-small: 480px

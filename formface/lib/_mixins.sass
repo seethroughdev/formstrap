@@ -103,5 +103,8 @@ $ff-label-total-offset: $ff-input-height + $ff-label-offset
 
 $ff-input-width: 100%
 
+@if $ff-state-focus-bg == inherit
+  $ff-state-focus-bg: $ff-input-bg
+
 .transition
   +transition(background ease-in-out .2s, color ease-in-out .2s)
