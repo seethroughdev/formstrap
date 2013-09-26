@@ -26,6 +26,7 @@
     &:required
       ~ .label-text:after
         content: ' *'
+        color: $ff-state-required-color
       &:invalid
         +color-state(return)
       &:focus
