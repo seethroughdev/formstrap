@@ -4,6 +4,7 @@
   ~ .#{$sibling}-text
     @content
 
+// set colors on input state
 @mixin color-state($color)
 
   // removing color-state on required fields
@@ -34,7 +35,6 @@
     @else if $ff-state-style == border
       border-color: rgba($color, 0.85)
 
-
     @if $ff-state-help-change-color
       +sibling-state(help)
         color: $color
@@ -47,9 +47,11 @@
         @else
           color: $color
 
+// quick way to check label position
 @mixin label($media)
   @if $ff-label-position == $media
     @content
+
 
 // prevent border-radius confusion
 @mixin border-radius($pos)
@@ -70,10 +72,11 @@
   @else if $pos == bottom-right
     border-radius: 0 0 $ff-input-round 0
 
+// border-shortcut
 @mixin border()
   border: $ff-input-border-width $ff-input-border-style $ff-input-border-color
 
-
+// responsive
 @mixin break($media)
   @if $media == mobile-only
     @media screen and (max-width:$break-small)
@@ -92,19 +95,18 @@
       @content
 
 
-// non-editable vars
-$ff-label-total-offset: $ff-input-height + $ff-label-offset
+// font-stacks
+// found on: http://cssfontstack.com/
+$arial: Arial, "Helvetica Neue", Helvetica, sans-serif
+$calibri: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif
+$cambria: Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif
+$century: "Century Gothic", CenturyGothic, AppleGothic, sans-serif
+$consolas: Consolas, monaco, monospace
+$gil: "Gill Sans", "Gill Sans MT", Calibri, sans-serif
+$helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif
+$impact: Impact, Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans serif
 
-@if $ff-label-position == top and $ff-group-stacked == true
-  $ff-label-cap: false
-
-@if $ff-group-stacked
-  $ff-help-display: false
-
-$ff-input-width: 100%
-
-@if $ff-state-focus-bg == inherit
-  $ff-state-focus-bg: $ff-input-bg
-
-.transition
-  +transition(background ease-in-out .2s, color ease-in-out .2s)
+$hoefler: "Hoefler Text", "Baskerville old face", Garamond, "Times New Roman", serif
+$lucida: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif
+$monaco: Monaco, Consolas, "Lucida Console", monospace
+$rockwell: Rockwell, "Courier Bold", Courier, Georgia, Times, "Times New Roman", serif
