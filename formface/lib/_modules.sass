@@ -207,9 +207,9 @@
         margin-bottom: 0
         .help-text
           display: none
-        @if $ff-label-cap
-          .label-text
-            border-bottom-width: 0
+        .label-text
+          border-bottom-width: 0
+          @if $ff-label-cap
             border-radius: 0
         &:first-of-type
           .label-text
@@ -304,6 +304,7 @@
           left: 0
           cursor: pointer
           font-family: inherit
+          font-size: $ff-input-font-size
           +label(top)
             position: relative
             top: 0

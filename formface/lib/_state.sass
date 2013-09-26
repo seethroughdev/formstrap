@@ -5,6 +5,7 @@
       border-bottom-width: $ff-input-border-width
       z-index: 10
 
+
     &:focus
       +color-state($ff-state-focus)
       @if $ff-state-focus-bg == inherit
@@ -28,7 +29,7 @@
         content: ' *'
         color: $ff-state-required-color
       &:invalid
-        +color-state(return)
+        // +color-state(return)
       &:focus
         +color-state($ff-state-focus)
       @if $ff-state-change-on-success
