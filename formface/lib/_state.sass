@@ -19,6 +19,10 @@
       cursor: not-allowed
       background: $ff-state-disabled
 
+    @if $ff-state-change-on-success
+      &:valid
+        +color-state($ff-state-success)
+
     &:required
       ~ .label-text:after
         content: ' *'
@@ -26,3 +30,6 @@
         +color-state(return)
       &:focus
         +color-state($ff-state-focus)
+      @if $ff-state-change-on-success
+        &:focus
+          +color-state($ff-state-success)

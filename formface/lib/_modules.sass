@@ -98,7 +98,6 @@
           left: 0
         +label(right)
           right: 0
-
   input
 
     position: relative
@@ -143,7 +142,7 @@
       position: relative
       width: $ff-input-width
       +label(left)
-        padding-left: $ff-label-width * 1.2
+        padding-left: $ff-label-width
       +label(right)
         padding-right: $ff-label-width
 
@@ -169,7 +168,7 @@
 
     +label(left)
       margin-left: $ff-label-width
-      @if $ff-group-stacked
+      @if $ff-group-stacked or $ff-label-inside
         margin-left: 0
 
 

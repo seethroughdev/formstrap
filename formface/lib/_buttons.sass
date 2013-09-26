@@ -11,15 +11,22 @@
     -webkit-appearance: button
     cursor: pointer
     padding: 0
+    height: $ff-submit-height
     @extend .transition
+
     +label(left)
       width: $ff-width - $ff-label-width
       margin-left: $ff-label-width
+      @if $ff-label-inside
+        margin-left: 0
+        width: $ff-input-width
 
     +label(right)
       @if $ff-label-inside == false
         width: $ff-width - $ff-label-width
+      @if $ff-label-inside
+        width: $ff-input-width
 
-    &:hover
+    &:hover, &:focus
       background: $ff-submit-hover-bg
       color: $ff-submit-hover-color

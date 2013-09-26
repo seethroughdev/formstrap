@@ -1,17 +1,23 @@
+
+// shortcut to style siblings
+@mixin sibling-state($sibling:label)
+  ~ .#{$sibling}-text
+    @content
+
 @mixin color-state($color)
 
-  // preventing color-state on required fields
+  // removing color-state on required fields
   @if $color == return
     border-color: $ff-input-border-color
     background: $ff-input-bg
     @if $ff-state-label-change-color
-      ~ .label-text
+      +sibling-state()
         color: $ff-label-color
         @if $ff-label-cap
           background: $ff-label-cap-bg
           border-color: $ff-input-border-color
     @if $ff-state-help-change-color
-      ~ .help-text
+      +sibling-state(help)
         color: $ff-help-color
     @if $ff-state-style == shadow
       box-shadow: $ff-input-box-shadow
@@ -30,17 +36,16 @@
 
 
     @if $ff-state-help-change-color
-      ~ .help-text
+      +sibling-state(help)
         color: $color
     @if $ff-state-label-change-color
-      ~ .label-text
+      +sibling-state()
         @if $ff-label-cap
           background: $color
           @if lightness($color) > 50%
             color: white
         @else
           color: $color
-
 
 @mixin label($media)
   @if $ff-label-position == $media
