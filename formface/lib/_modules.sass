@@ -4,6 +4,11 @@
     position: relative
     display: block
     margin-bottom: $ff-field-margin-bottom
+    @if $ff-field-bg != inherit
+      background: $ff-field-bg
+    @if $ff-field-bg-round != 0 or $ff-field-bg-round != none
+      border-radius: $ff-field-bg-round
+    padding: $ff-field-padding
 
     .help-text
       display: block
@@ -176,6 +181,11 @@
     color: $ff-legend-color
     margin-bottom: $ff-legend-margin-bottom
     text-align: $ff-legend-text-align
+    @if $ff-group-padding != 0 or $ff-group-bg != inherit
+      position: relative
+      top: ($ff-legend-font-size / 2) + $ff-group-padding
+      & + label
+        margin-top: $ff-legend-font-size
 
     +label(left)
       margin-left: $ff-label-width
@@ -185,7 +195,11 @@
 
   fieldset
     +clearfix
+    position: relative
     margin-bottom: $ff-group-margin-bottom
+    @if $ff-group-bg != inherit
+      background: $ff-group-bg
+    padding: $ff-group-padding
 
     label
       @if $ff-group-stacked
