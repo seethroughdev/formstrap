@@ -12,5 +12,8 @@ $ff-input-width: 100%
 @if $ff-state-focus-bg == inherit
   $ff-state-focus-bg: $ff-input-bg
 
+@if $ff-help-display-on-focus
+  $ff-help-display: true
+  
 .transition
   +transition(background ease-in-out .2s, color ease-in-out .2s)

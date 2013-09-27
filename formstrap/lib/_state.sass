@@ -12,6 +12,12 @@
         background: $ff-input-bg
       @else
         background: $ff-state-focus-bg
+      @if $ff-help-display-on-focus == true
+        +sibling-state(help)
+          font-size: $ff-help-size
+          font-family: inherit
+          color: $ff-help-color
+          // line-height: $ff-help-size * 1.5
 
     &:invalid
       +color-state($ff-state-invalid)

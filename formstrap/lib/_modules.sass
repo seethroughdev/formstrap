@@ -36,7 +36,11 @@
         display: none
       @if $ff-group-stacked
         display: none
-
+      @if $ff-help-display-on-focus == true
+        font-size: 0
+        font-family: a
+        // line-height: 0
+      
     .label-text
       width: $ff-label-width
       line-height: $ff-label-total-offset

@@ -12,10 +12,10 @@
         <fieldset>
           <legend>Sign Up</legend>
           <label>
-            <input type="text" placeholder="Username" id="username" required><span class="label-text icon-user"></span><span class="help-text">Select a username</span>
+            <input type="text" placeholder="Username" id="username" pattern=".{2,10}" required><span class="label-text icon-user"></span><span class="help-text">Select a username</span>
           </label>
           <label>
-            <input type="password" placeholder="Password" id="password" required><span class="label-text icon-key"></span><span class="help-text">Enter your password</span>
+            <input type="password" placeholder="Password" id="password" pattern=".{2,10}"><span class="label-text icon-key"></span><span class="help-text">Enter your password</span>
           </label>
         </fieldset>
         <fieldset>

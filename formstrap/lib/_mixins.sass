@@ -46,7 +46,10 @@
             color: white
         @else
           color: $color
-
+    @if $ff-state-change-on-success
+      +sibling-state()
+        // add animated transition of color here -AL
+        
 // quick way to check label position
 @mixin label($media)
   @if $ff-label-position == $media
