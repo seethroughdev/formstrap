@@ -185,6 +185,8 @@
     color: $ff-legend-color
     margin-bottom: $ff-legend-margin-bottom
     text-align: $ff-legend-text-align
+    @if $ff-legend-text-transform != none
+      text-transform: $ff-legend-text-transform
     @if $ff-group-padding != 0 or $ff-group-bg != inherit
       position: relative
       top: ($ff-legend-font-size / 2) + $ff-group-padding
@@ -290,7 +292,8 @@
         width: (100 / $ff-check-radio-columns) * 1%
         margin-bottom: $ff-field-margin-bottom / 2
         +label(left)
-          padding-left: $ff-label-width
+          @if $ff-label-inside != true
+            padding-left: $ff-label-width
         .label-text
           background: transparent
           text-align: left
