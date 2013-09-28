@@ -1,9 +1,9 @@
 .form-face
   input[type="submit"], input[type="button"]
     background: $ff-submit-bg
-    @if $ff-submit-bg-image != false or $ff-submit-bg-image != none
+    +ifTruthy($ff-submit-bg-image)
       +background-image($ff-submit-bg-image)
-    @if $ff-submit-text-shadow != false or $ff-submit-text-shadow != none
+    +ifTruthy($ff-submit-text-shadow)
       text-shadow: $ff-submit-text-transform
     font-size: $ff-submit-font-size
     font-weight: $ff-submit-font-weight

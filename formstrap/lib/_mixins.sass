@@ -1,3 +1,41 @@
+// quick way to check label position
+@mixin label($position:(left,top,right,bottom,none))
+  @each $pos in $position
+    @if $ff-label-position == $pos
+      @content
+
+@mixin ifTruthy($tags)
+  @each $tag in $tags
+    @if $tag != false or $tag != none or $tag != 0 or $tag != inherit
+      @content
+
+@mixin ifFalsy($tags)
+  @each $tag in $tags
+    @if $tag == false or $tag == none or $tag == 0 or $tag == inherit
+      @content
+
+// prevent border-radius confusion
+@mixin border-radius($pos)
+  @if $pos == top
+    border-radius: $ff-input-round $ff-input-round 0 0
+  @else if $pos == bottom
+    border-radius: 0 0 $ff-input-round $ff-input-round
+  @else if $pos == left
+    border-radius: $ff-input-round 0 0 $ff-input-round
+  @else if $pos == right
+    border-radius: 0 $ff-input-round $ff-input-round 0
+  @else if $pos == top-left
+    border-radius: $ff-input-round 0 0 0
+  @else if $pos == top-right
+    border-radius: 0 $ff-input-round 0 0
+  @else if $pos == bottom-left
+    border-radius: 0 0 0 $ff-input-round
+  @else if $pos == bottom-right
+    border-radius: 0 0 $ff-input-round 0
+
+// border-shortcut
+@mixin border()
+  border: $ff-input-border-width $ff-input-border-style $ff-input-border-color
 
 // shortcut to style siblings
 @mixin sibling-state($sibling:label)
@@ -6,7 +44,6 @@
 
 // set colors on input state
 @mixin color-state($color)
-
   // removing color-state on required fields
   @if $color == undo
     border-color: $ff-input-border-color
@@ -49,36 +86,7 @@
     @if $ff-state-change-on-success
       +sibling-state()
         // add animated transition of color here -AL
-        
-// quick way to check label position
-@mixin label($position:(left,top,right,bottom,none))
-  @each $pos in $position
-    @if $ff-label-position == $pos
-      @content
 
-
-// prevent border-radius confusion
-@mixin border-radius($pos)
-  @if $pos == top
-    border-radius: $ff-input-round $ff-input-round 0 0
-  @else if $pos == bottom
-    border-radius: 0 0 $ff-input-round $ff-input-round
-  @else if $pos == left
-    border-radius: $ff-input-round 0 0 $ff-input-round
-  @else if $pos == right
-    border-radius: 0 $ff-input-round $ff-input-round 0
-  @else if $pos == top-left
-    border-radius: $ff-input-round 0 0 0
-  @else if $pos == top-right
-    border-radius: 0 $ff-input-round 0 0
-  @else if $pos == bottom-left
-    border-radius: 0 0 0 $ff-input-round
-  @else if $pos == bottom-right
-    border-radius: 0 0 $ff-input-round 0
-
-// border-shortcut
-@mixin border()
-  border: $ff-input-border-width $ff-input-border-style $ff-input-border-color
 
 // responsive
 @mixin break($media)

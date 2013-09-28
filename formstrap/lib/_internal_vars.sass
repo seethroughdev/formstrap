@@ -23,6 +23,9 @@ $ff-input-width: 100%
 // force display to true if on focus is selected
 @if $ff-help-display-on-focus
   $ff-help-display: true
-  
+
+@if $ff-state-change-on-success
+  $ff-state-label-change-color: true
+
 .transition
   +transition(background ease-in-out .2s, color ease-in-out .2s)

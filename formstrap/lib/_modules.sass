@@ -4,9 +4,9 @@
     position: relative
     display: block
     margin-bottom: $ff-field-margin-bottom
-    @if $ff-field-bg != inherit
+    +ifTruthy($ff-field-bg)
       background: $ff-field-bg
-    @if $ff-field-bg-round != 0 or $ff-field-bg-round != none
+    +ifTruthy($ff-field-bg-round)
       border-radius: $ff-field-bg-round
     padding: $ff-field-padding
 
@@ -40,7 +40,7 @@
         font-size: 0
         font-family: a
         // line-height: 0
-      
+
     .label-text
       width: $ff-label-width
       line-height: $ff-label-total-offset
@@ -85,7 +85,10 @@
 
       @if $ff-label-cap
         background: $ff-label-cap-bg
-        box-shadow: $ff-label-cap-box-shadow
+        +ifTruthy($ff-label-cap-bg-image)
+          +background-image($ff-label-cap-bg-image)
+        +ifTruthy($ff-label-cap-box-shadow)
+          box-shadow: $ff-label-cap-box-shadow
         overflow: hidden
         +border()
 
@@ -167,7 +170,7 @@
 
     +placeholder
       color: $ff-placeholder-color
-      @if $ff-placeholder-show != true
+      +ifFalsy($ff-placeholder-show)
         +hide-text
 
   textarea
@@ -184,9 +187,9 @@
     color: $ff-legend-color
     margin-bottom: $ff-legend-margin-bottom
     text-align: $ff-legend-text-align
-    @if $ff-legend-text-transform != none
+    +ifTruthy($ff-legend-text-transform)
       text-transform: $ff-legend-text-transform
-    @if $ff-group-padding != 0 or $ff-group-bg != inherit
+    +ifTruthy(($ff-group-padding, $ff-group-bg))
       position: relative
       top: ($ff-legend-font-size / 2) + $ff-group-padding
       & + label
@@ -202,7 +205,7 @@
     +clearfix
     position: relative
     margin-bottom: $ff-group-margin-bottom
-    @if $ff-group-bg != inherit
+    +ifTruthy($ff-group-bg)
       background: $ff-group-bg
       border-radius: $ff-input-round
     padding: $ff-group-padding
@@ -278,7 +281,7 @@
               +border-radius(right)
             +label(right)
               +border-radius(left)
-          @if $ff-label-cap == false
+          +ifFalsy($ff-label-cap)
             border-radius: $ff-input-round
 
     &.checkbox-group, &.radio-group
@@ -287,7 +290,7 @@
         width: (100 / $ff-check-radio-columns) * 1%
         margin-bottom: $ff-field-margin-bottom / 2
         +label(left)
-          @if $ff-label-inside != true
+          +ifFalsy($ff-label-inside)
             padding-left: $ff-label-width
         .label-text
           background: transparent
