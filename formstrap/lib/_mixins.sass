@@ -51,9 +51,10 @@
         // add animated transition of color here -AL
         
 // quick way to check label position
-@mixin label($media)
-  @if $ff-label-position == $media
-    @content
+@mixin label($position:(left,top,right,bottom,none))
+  @each $pos in $position
+    @if $ff-label-position == $pos
+      @content
 
 
 // prevent border-radius confusion

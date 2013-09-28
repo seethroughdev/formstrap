@@ -53,7 +53,7 @@
       text-transform: $ff-label-text-transform
 
       // set label padding
-      @if $ff-label-position == left or $ff-label-position == right
+      +label((left,right))
         @if $ff-label-align == left
           padding: 0 0 0 $ff-label-padding-horizontal
         @if $ff-label-align == center
@@ -144,9 +144,8 @@
     +label(top)
       margin-top: $ff-label-total-offset
 
-    @if $ff-label-position == top or $ff-label-position == bottom or $ff-label-position == none
+    +label((top,bottom,none))
       width: $ff-input-width
-      $ff-label-inside: false
 
     @if $ff-label-cap
       +label(left)

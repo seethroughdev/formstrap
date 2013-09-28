@@ -2,7 +2,6 @@
 $ff-label-total-offset: $ff-input-height + $ff-label-offset
 
 // force position to left if stacked and positioned top/bottom
-
 @if $ff-group-stacked
   @if $ff-label-position == top or $ff-label-position == bottom
     $ff-label-position: left
@@ -12,6 +11,10 @@ $ff-label-total-offset: $ff-input-height + $ff-label-offset
 
 // default inputs to 100% always
 $ff-input-width: 100%
+
+// if label position is not left/right, don't let label be inside
++label((top,bottom,none))
+  $ff-label-inside: false
 
 
 @if $ff-state-focus-bg == inherit
