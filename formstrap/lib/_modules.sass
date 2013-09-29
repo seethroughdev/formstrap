@@ -11,110 +11,113 @@
     padding: $ff-field-padding
 
     .help-text
-      display: block
-      height: $ff-label-total-offset
-      line-height: $ff-label-total-offset
-      color: $ff-help-color
-      font-size: $ff-help-size
-      text-align: $ff-help-align
+      @if $ff-help-display
+        display: block
+        height: $ff-label-total-offset
+        line-height: $ff-label-total-offset
+        color: $ff-help-color
+        font-size: $ff-help-size
+        text-align: $ff-help-align
 
-      +label(none)
-        margin-right: 0
-        margin-left: 0
-      +label(left)
-        padding-left: $ff-input-padding-horizontal
-        margin-left: $ff-label-width
-      +label(right)
-        padding-left: $ff-input-padding-horizontal
-        margin-right: $ff-label-width
-        margin-left: 0
-        float: left
-      +label(bottom)
-        float: right
+        +label(none)
+          margin-right: 0
+          margin-left: 0
+        +label(left)
+          padding-left: $ff-input-padding-horizontal
+          margin-left: $ff-label-width
+        +label(right)
+          padding-left: $ff-input-padding-horizontal
+          margin-right: $ff-label-width
+          margin-left: 0
+          float: left
+        +label(bottom)
+          float: right
 
-      @if $ff-help-display == false
+        @if $ff-help-display == false
+          display: none
+        @if $ff-group-stacked
+          display: none
+        @if $ff-help-display-on-focus == true
+          font-size: 0
+          font-family: a
+          // line-height: 0
+      @else
         display: none
-      @if $ff-group-stacked
-        display: none
-      @if $ff-help-display-on-focus == true
-        font-size: 0
-        font-family: a
-        // line-height: 0
 
     .label-text
-      width: $ff-label-width
-      line-height: $ff-label-total-offset
-      height: $ff-label-total-offset
-      text-align: $ff-label-align
-      font-size: $ff-label-font-size
-      color: $ff-label-color
-      font-family: $ff-label-font-family
-      font-weight: $ff-label-font-weight
-      text-transform: $ff-label-text-transform
+      @if $ff-label-position != none
+        width: $ff-label-width
+        line-height: $ff-label-total-offset
+        height: $ff-label-total-offset
+        text-align: $ff-label-align
+        font-size: $ff-label-font-size
+        color: $ff-label-color
+        font-family: $ff-label-font-family
+        font-weight: $ff-label-font-weight
+        text-transform: $ff-label-text-transform
 
-      // set label padding
-      +label((left,right))
-        @if $ff-label-align == left
-          padding: 0 0 0 $ff-label-padding-horizontal
-        @if $ff-label-align == center
-          padding: 0
-        @if $ff-label-align == right
-          padding: 0 $ff-label-padding-horizontal 0 0
+        // set label padding
+        +label((left,right))
+          @if $ff-label-align == left
+            padding: 0 0 0 $ff-label-padding-horizontal
+          @if $ff-label-align == center
+            padding: 0
+          @if $ff-label-align == right
+            padding: 0 $ff-label-padding-horizontal 0 0
 
-      // set label position
-      +label(left)
-        float: left
-      +label(right)
-        float: right
-      +label(top)
-        display: block
-        width: 100%
-        position: absolute
-        top: 0
-      +label(bottom)
-        display: block
-        position: relative
-        @if $ff-help-display
+        // set label position
+        +label(left)
           float: left
-      +label(none)
+        +label(right)
+          float: right
+        +label(top)
+          display: block
+          width: 100%
+          position: absolute
+          top: 0
+        +label(bottom)
+          display: block
+          position: relative
+          @if $ff-help-display
+            float: left
+
+        @if $ff-label-cap
+          background: $ff-label-cap-bg
+          overflow: hidden
+          +border()
+          +ifTruthy($ff-label-cap-bg-image)
+            +background-image($ff-label-cap-bg-image)
+          +ifTruthy($ff-label-cap-box-shadow)
+            box-shadow: $ff-label-cap-box-shadow
+
+          +label(left)
+            +border-radius(left)
+            border-right-width: 0
+          +label(right)
+            +border-radius(right)
+            border-left-width: 0
+          +label(top)
+            +border-radius(top)
+            border-bottom-width: 0
+          +label('bottom')
+            +border-radius(bottom)
+            border-top-width: 0
+
+        @if $ff-group-stacked
+          +label(top)
+            display: none
+
+        @if $ff-label-inside
+          position: absolute
+          z-index: 20
+          +label(left)
+            left: 0
+          +label(right)
+            right: 0
+      @else
         display: none
         opacity: 0
-
-      @if $ff-label-cap
-        background: $ff-label-cap-bg
-        overflow: hidden
-        +border()
-        +ifTruthy($ff-label-cap-bg-image)
-          +background-image($ff-label-cap-bg-image)
-        +ifTruthy($ff-label-cap-box-shadow)
-          box-shadow: $ff-label-cap-box-shadow
-
-        +label(left)
-          +border-radius(left)
-          border-right-width: 0
-        +label(right)
-          +border-radius(right)
-          border-left-width: 0
-        +label(top)
-          +border-radius(top)
-          border-bottom-width: 0
-        +label('bottom')
-          +border-radius(bottom)
-          border-top-width: 0
-
-      @if $ff-group-stacked
-        +label(top)
-          display: none
-
-      @if $ff-label-inside
-        position: absolute
-        z-index: 20
-        +label(left)
-          left: 0
-        +label(right)
-          right: 0
   input
-
     position: relative
     color: $ff-input-color
     font-size: $ff-input-font-size
@@ -183,28 +186,31 @@
     min-height: $ff-input-height
 
   legend
-    font-size: $ff-legend-font-size
-    font-weight: $ff-legend-font-weight
-    color: $ff-legend-color
-    margin-bottom: $ff-legend-margin-bottom
-    text-align: $ff-legend-text-align
-    +ifTruthy($ff-legend-text-transform)
-      text-transform: $ff-legend-text-transform
-    +ifTruthy($ff-group-padding)
-      position: relative
-      top: ($ff-legend-font-size / 2) + $ff-group-padding
-      & + label
-        margin-top: $ff-legend-font-size
-    +ifTruthy($ff-group-bg)
-      position: relative
-      top: ($ff-legend-font-size / 2) + $ff-group-padding
-      & + label
-        margin-top: $ff-legend-font-size
+    @if $ff-legend-display
+      font-size: $ff-legend-font-size
+      font-weight: $ff-legend-font-weight
+      color: $ff-legend-color
+      margin-bottom: $ff-legend-margin-bottom
+      text-align: $ff-legend-text-align
+      +ifTruthy($ff-legend-text-transform)
+        text-transform: $ff-legend-text-transform
+      +ifTruthy($ff-group-padding)
+        position: relative
+        top: ($ff-legend-font-size / 2) + $ff-group-padding
+        & + label
+          margin-top: $ff-legend-font-size
+      +ifTruthy($ff-group-bg)
+        position: relative
+        top: ($ff-legend-font-size / 2) + $ff-group-padding
+        & + label
+          margin-top: $ff-legend-font-size
 
-    +label(left)
-      margin-left: $ff-label-width
-      @if $ff-group-stacked or $ff-label-inside
-        margin-left: 0
+      +label(left)
+        margin-left: $ff-label-width
+        @if $ff-group-stacked or $ff-label-inside
+          margin-left: 0
+    @else
+      display: none
 
 
   fieldset
