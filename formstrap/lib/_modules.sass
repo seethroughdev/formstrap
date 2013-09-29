@@ -207,7 +207,7 @@
 
       +label(left)
         margin-left: $ff-label-width
-        @if $ff-group-stacked or $ff-label-inside
+        @if $ff-group-stacked or $ff-label-inside or $ff-label-cap
           margin-left: 0
     @else
       display: none
@@ -317,7 +317,7 @@
               border-radius: 0
               width: auto
               float: none
-              padding: 0 $ff-label-padding-horizontal
+              padding: 0 10px
               position: relative
               right: 0
               left: 0
@@ -351,6 +351,8 @@
             margin-top: 0
             border-top: 0
             box-shadow: none
+          +break(mobile-only)
+            min-height: 40px
 
   @if $ff-use-twitter-bootstrap
     .form-group
