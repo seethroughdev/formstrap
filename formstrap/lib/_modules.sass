@@ -160,12 +160,19 @@
       +label(right)
         padding-right: $ff-label-width
 
+    // placeholder with polyfill support
+    // https://github.com/mathiasbynens/jquery-placeholder
     +ifTruthy($ff-placeholder-show)
+      .placeholder
+        color: $ff-placeholder-color
       +placeholder
         color: $ff-placeholder-color
     +ifFalsy($ff-placeholder-show)
+      .placeholder
+        +hide-text
       +placeholder
         +hide-text
+
 
   textarea
     @extend input
