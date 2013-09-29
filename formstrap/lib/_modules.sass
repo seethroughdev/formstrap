@@ -178,8 +178,8 @@
     @extend input
     height: auto
     line-height: 1.25em
-    padding-top: .5em
-    padding-bottom: .5em
+    padding-top: .75em
+    padding-bottom: .75em
     min-height: $ff-input-height
 
   legend
@@ -317,14 +317,15 @@
           font-size: $ff-input-font-size
           @if $ff-label-cap
             background: transparent
-          +label(top)
+          +label((top,bottom))
             position: relative
             top: 0
             left: 10px
-          +label(bottom)
+          @if $ff-label-inside
             position: relative
             top: 0
             left: 10px
+
           &:hover
             cursor: pointer
             color: $ff-check-radio-hover-color
