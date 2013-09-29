@@ -46,13 +46,13 @@
   @if $color == undo
     border-color: $ff-input-border-color
     background: $ff-input-bg
-    @if $ff-state-label-change-color
+    @if $ff-state-label-change-color and $ff-label-position != none
       +sibling-state()
         color: $ff-label-color
         @if $ff-label-cap
           background: $ff-label-cap-bg
           border-color: $ff-input-border-color
-    @if $ff-state-help-change-color
+    @if $ff-state-help-change-color and $ff-help-display
       +sibling-state(help)
         color: $ff-help-color
     @if $ff-state-style == shadow
@@ -70,10 +70,10 @@
     @else if $ff-state-style == border
       border-color: rgba($color, 0.85)
 
-    @if $ff-state-help-change-color
+    @if $ff-state-help-change-color and $ff-help-display
       +sibling-state(help)
         color: $color
-    @if $ff-state-label-change-color
+    @if $ff-state-label-change-color and $ff-label-position != none
       +sibling-state()
         @if $ff-label-cap
           background: $color
