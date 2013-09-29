@@ -17,7 +17,6 @@
           font-size: $ff-help-size
           font-family: inherit
           color: $ff-help-color
-          // line-height: $ff-help-size * 1.5
 
     &:invalid
       +color-state($ff-state-invalid)
@@ -41,3 +40,11 @@
       @if $ff-state-change-on-success
         &:focus
           +color-state($ff-state-success)
+
+  @if $ff-label-cap
+    fieldset
+      &.checkbox-group, &.radio-group
+        input:focus
+          +sibling-state()
+            background: transparent
+            color: $ff-form-color

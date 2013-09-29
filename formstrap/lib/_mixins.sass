@@ -4,15 +4,13 @@
     @if $ff-label-position == $pos
       @content
 
-@mixin ifTruthy($tags)
-  @each $tag in $tags
-    @if $tag != false or $tag != none or $tag != 0 or $tag != inherit
-      @content
+@mixin ifTruthy($tag)
+  @if $tag != false and $tag != none and $tag != 0 and $tag != inherit
+    @content
 
-@mixin ifFalsy($tags)
-  @each $tag in $tags
-    @if $tag == false or $tag == none or $tag == 0 or $tag == inherit
-      @content
+@mixin ifFalsy($tag)
+  @if $tag == false or $tag == none or $tag == 0 or $tag == inherit
+    @content
 
 // prevent border-radius confusion
 @mixin border-radius($pos)

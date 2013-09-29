@@ -47,7 +47,7 @@ $ff-form-bg: $medium              // Leave transparent to inherit background
 $ff-form-padding: 5%           // Form padding
 $ff-form-font-family: 'Open Sans', sans-serif
 $ff-form-font-size: 1em
-$ff-form-font-weight: inherit
+$ff-form-font-weight: bold
 $ff-form-text-transform: inherit
 $ff-form-color: inherit
 
@@ -70,7 +70,7 @@ $ff-label-position: right         // left/right/top/bottom/none
 $ff-label-align: center           // left/right/center
 $ff-label-font-size: inherit
 $ff-label-font-family: inherit    // use this for font-icons!
-$ff-label-font-weight: bold
+$ff-label-font-weight: inherit
 $ff-label-color: inherit
 $ff-label-text-transform: inherit // uppercase/lowercase/none
 $ff-label-padding-horizontal: 15px
@@ -79,13 +79,13 @@ $ff-label-offset: 0               // if you do use em for $ff-input-height, you 
 
 $ff-label-cap: true               // add containers around your labels
 $ff-label-cap-bg: $light
-$ff-label-cap-bg-image: +linear-gradient($light,$medium)
+$ff-label-cap-bg-image: linear-gradient($light, $medium)
 $ff-label-cap-box-shadow: inset 0 2px 10px 2px rgba(255,255,255,.2)
 $ff-label-inside: false
 
 // inputs
 $ff-input-font-size: inherit
-$ff-input-font-weight: normal
+$ff-input-font-weight: inherit
 // use px if you can!  browsers want input height to be in px
 $ff-input-height: 35px
 $ff-input-padding-horizontal: 8px
@@ -111,7 +111,7 @@ $ff-state-focus: $blue
 $ff-state-focus-bg: inherit
 $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
-$ff-state-success: $green
+$ff-state-success: $blue
 $ff-state-required-color: inherit
 
 // these will change text color to state colors if html5 is used
@@ -125,7 +125,7 @@ $ff-legend-color: inherit
 $ff-legend-text-transform: none
 $ff-legend-margin-bottom: .5em
 $ff-legend-text-align: left
-$ff-legend-font-weight: bold
+$ff-legend-font-weight: inherit
 $ff-legend-text-transform: none
 
 // Help block styles.  *These will auto-hide on stacked fields

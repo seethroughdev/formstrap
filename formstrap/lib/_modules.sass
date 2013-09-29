@@ -189,7 +189,12 @@
     text-align: $ff-legend-text-align
     +ifTruthy($ff-legend-text-transform)
       text-transform: $ff-legend-text-transform
-    +ifTruthy(($ff-group-padding, $ff-group-bg))
+    +ifTruthy($ff-group-padding)
+      position: relative
+      top: ($ff-legend-font-size / 2) + $ff-group-padding
+      & + label
+        margin-top: $ff-legend-font-size
+    +ifTruthy($ff-group-bg)
       position: relative
       top: ($ff-legend-font-size / 2) + $ff-group-padding
       & + label
@@ -309,6 +314,8 @@
           cursor: pointer
           font-family: inherit
           font-size: $ff-input-font-size
+          @if $ff-label-cap
+            background: transparent
           +label(top)
             position: relative
             top: 0
