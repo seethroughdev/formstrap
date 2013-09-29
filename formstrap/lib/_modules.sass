@@ -280,6 +280,7 @@
                 +border-radius(bottom)
             @else
               +border-radius(bottom)
+
       &:first-of-type:last-of-type
         .label-text
           @if $ff-label-cap
@@ -296,59 +297,60 @@
           +ifFalsy($ff-label-cap)
             border-radius: $ff-input-round
 
-    &.checkbox-group, &.radio-group
-      label
-        float: left
-        width: (100 / $ff-check-radio-columns) * 1%
-        margin-bottom: $ff-field-margin-bottom / 2
-        +label(left)
-          +ifFalsy($ff-label-inside)
-            padding-left: $ff-label-width
-        @if $ff-label-position != none
-          .label-text
-            background: transparent
-            text-align: left
-            display: inline-block
-            opacity: 1
-            border: 0
-            color: $ff-check-radio-color
-            border-radius: 0
-            width: auto
-            float: none
-            padding: 0 $ff-label-padding-horizontal
-            position: relative
-            right: 0
-            left: 0
-            cursor: pointer
-            font-family: inherit
-            font-size: $ff-input-font-size
-            @if $ff-label-cap
+    @if $ff-use-checkbox-radio
+      &.checkbox-group, &.radio-group
+        label
+          float: left
+          width: (100 / $ff-check-radio-columns) * 1%
+          margin-bottom: $ff-field-margin-bottom / 2
+          +label(left)
+            +ifFalsy($ff-label-inside)
+              padding-left: $ff-label-width
+          @if $ff-label-position != none
+            .label-text
               background: transparent
-            +label((top,bottom))
+              text-align: left
+              display: inline-block
+              opacity: 1
+              border: 0
+              color: $ff-check-radio-color
+              border-radius: 0
+              width: auto
+              float: none
+              padding: 0 $ff-label-padding-horizontal
               position: relative
-              top: 0
-              left: 10px
-            @if $ff-label-inside
-              position: relative
-              top: 0
-              left: 10px
-
-            &:hover
+              right: 0
+              left: 0
               cursor: pointer
-              color: $ff-check-radio-hover-color
-      .help-text
-        display: none
-      input
-        float: left
-        width: auto
-        +label(top)
-          margin-top: 0
-          border-top: 0
-          box-shadow: none
-        +label(bottom)
-          margin-top: 0
-          border-top: 0
-          box-shadow: none
+              font-family: inherit
+              font-size: $ff-input-font-size
+              @if $ff-label-cap
+                background: transparent
+              +label((top,bottom))
+                position: relative
+                top: 0
+                left: 10px
+              @if $ff-label-inside
+                position: relative
+                top: 0
+                left: 10px
+
+              &:hover
+                cursor: pointer
+                color: $ff-check-radio-hover-color
+        .help-text
+          display: none
+        input
+          float: left
+          width: auto
+          +label(top)
+            margin-top: 0
+            border-top: 0
+            box-shadow: none
+          +label(bottom)
+            margin-top: 0
+            border-top: 0
+            box-shadow: none
 
   @if $ff-use-twitter-bootstrap
     .form-group
