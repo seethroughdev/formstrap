@@ -64,16 +64,13 @@
       // set label position
       +label(left)
         float: left
-
       +label(right)
         float: right
-
       +label(top)
         display: block
         width: 100%
         position: absolute
         top: 0
-
       +label(bottom)
         display: block
         position: relative
@@ -85,25 +82,22 @@
 
       @if $ff-label-cap
         background: $ff-label-cap-bg
+        overflow: hidden
+        +border()
         +ifTruthy($ff-label-cap-bg-image)
           +background-image($ff-label-cap-bg-image)
         +ifTruthy($ff-label-cap-box-shadow)
           box-shadow: $ff-label-cap-box-shadow
-        overflow: hidden
-        +border()
 
         +label(left)
           +border-radius(left)
           border-right-width: 0
-
         +label(right)
           +border-radius(right)
           border-left-width: 0
-
         +label(top)
           +border-radius(top)
           border-bottom-width: 0
-
         +label('bottom')
           +border-radius(bottom)
           border-top-width: 0
@@ -135,11 +129,9 @@
     box-shadow: $ff-input-box-shadow
 
     // set width based on label
-    +label(left)
+    +label((left,right))
       width: $ff-input-width - $ff-label-width
-
     +label(right)
-      width: $ff-input-width - $ff-label-width
       float: left
       @if $ff-label-inside
         float: none
@@ -168,9 +160,11 @@
       +label(right)
         padding-right: $ff-label-width
 
-    +placeholder
-      color: $ff-placeholder-color
-      +ifFalsy($ff-placeholder-show)
+    +ifTruthy($ff-placeholder-show)
+      +placeholder
+        color: $ff-placeholder-color
+    +ifFalsy($ff-placeholder-show)
+      +placeholder
         +hide-text
 
   textarea
