@@ -17,6 +17,7 @@
     padding: 0
     white-space: nowrap
     height: $ff-submit-height
+    margin-bottom: 1em
     @extend .transition
 
     +label(left)
@@ -29,7 +30,7 @@
     +label(right)
       @if $ff-label-inside == false
         width: $ff-form-width - $ff-label-width
-      @if $ff-label-inside
+      @if $ff-label-inside or $ff-label-cap
         width: $ff-input-width
 
     &:hover, &:focus
