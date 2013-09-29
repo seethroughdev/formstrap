@@ -294,7 +294,7 @@
               +border-radius(right)
             +label(right)
               +border-radius(left)
-          +ifFalsy($ff-label-cap)
+          @else
             border-radius: $ff-input-round
 
     @if $ff-use-checkbox-radio
