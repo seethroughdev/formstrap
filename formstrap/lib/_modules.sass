@@ -86,7 +86,7 @@
           overflow: hidden
           +border()
           +ifTruthy($ff-label-cap-bg-image)
-            +background-image($ff-label-cap-bg-image)
+            +linear-gradient($ff-label-cap-bg-image,transparent)
           +ifTruthy($ff-label-cap-box-shadow)
             box-shadow: $ff-label-cap-box-shadow
 
@@ -127,7 +127,9 @@
     height: $ff-input-height
     border-radius: $ff-input-round
     vertical-align: middle
-    background-color: $ff-input-bg
+    background: $ff-input-bg
+    +ifTruthy($ff-input-bg-image)
+      +linear-gradient($ff-input-bg-image, transparent)
     +border()
     box-shadow: $ff-input-box-shadow
 

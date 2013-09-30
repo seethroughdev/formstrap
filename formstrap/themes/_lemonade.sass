@@ -80,7 +80,7 @@ $ff-label-offset: 0             // if you do use em for $ff-input-height, you ca
 
 $ff-label-cap: true               // add containers around your labels
 $ff-label-cap-bg: $primary
-$ff-label-cap-bg-image: none
+$ff-label-cap-bg-image: lighten($primary, 25%) 15%, $primary
 $ff-label-cap-box-shadow: none
 $ff-label-inside: false
 
@@ -93,6 +93,7 @@ $ff-input-padding-horizontal: 15px
 $ff-input-round: 4px
 $ff-input-color: $secondary
 $ff-input-bg: white
+$ff-input-bg-image: none
 $ff-input-border-style: solid
 $ff-input-border-width: 0
 $ff-input-border-color: $light
@@ -101,8 +102,8 @@ $ff-input-box-shadow: none
 
 // checkboxes and radios
 $ff-check-radio-columns: 1         // how many should fit across
-$ff-check-radio-color: inherit
-$ff-check-radio-hover-color: inherit
+$ff-check-radio-color: white
+$ff-check-radio-hover-color: $primary
 
 
 // input state
@@ -147,7 +148,7 @@ $ff-placeholder-color: $secondary
 
 // submit button
 $ff-submit-bg: $primary
-$ff-submit-bg-image: none
+$ff-submit-bg-image: lighten($primary, 20%) 15%, $primary
 $ff-submit-color: $red
 $ff-submit-text-shadow: none
 $ff-submit-box-shadow: none
