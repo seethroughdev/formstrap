@@ -13,8 +13,8 @@
     .help-text
       @if $ff-help-display
         display: block
-        height: $ff-label-total-offset
-        line-height: $ff-label-total-offset
+        height: $ff-help-size * 1.8
+        line-height: $ff-help-size * 1.8
         color: $ff-help-color
         font-size: $ff-help-size
         text-align: $ff-help-align
@@ -25,21 +25,25 @@
         +label(left)
           padding-left: $ff-input-padding-horizontal
           margin-left: $ff-label-width
+          margin-top: 5px
         +label(right)
+          margin-top: 5px
           padding-left: $ff-input-padding-horizontal
           margin-right: $ff-label-width
           margin-left: 0
           float: left
         +label(bottom)
           float: right
+        +label(top)
+          margin-top: 5px
+
 
         @if $ff-help-display == false
           display: none
         @if $ff-group-stacked
           display: none
         @if $ff-help-display-on-focus == true
-          font-size: 0
-          font-family: a
+          opacity: 0
           // line-height: 0
       @else
         display: none

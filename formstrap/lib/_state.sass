@@ -14,9 +14,7 @@
         background: $ff-state-focus-bg
       @if $ff-help-display-on-focus == true
         +sibling-state(help)
-          font-size: $ff-help-size
-          font-family: inherit
-          color: $ff-help-color
+          opacity: 1
 
     &:invalid
       +color-state($ff-state-invalid)

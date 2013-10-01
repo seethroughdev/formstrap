@@ -10,18 +10,20 @@
 
 // Set your color variables here, you can add or edit any way you see fit, just be sure to use update the variables below in the settings.
 
+$white: hsla(0.00, 0.00%, 98.47%, 1.00)
 $blue: hsla(198.75, 100.00%, 47.06%, 1.00)
 $red: hsla(346.18, 76.10%, 50.78%, 1.00)
-$green: hsla(120.00, 100.00%, 38.04%, 1.00)
+$lt-green: hsla(77.65, 48.57%, 86.27%, 1.00)
+$green: hsla(79.02, 51.25%, 68.63%, 1.00)
 $yellow: hsla(51.16, 100.00%, 49.22%, 1.00)
-$lt-grey: hsla(39.13, 33.33%, 86.47%, 1.00)
-$grey: hsla(0.00, 0.00%, 57.25%, 1.00)
+$lt-grey: hsla(0.00, 0.00%, 90.94%, 1.00)
+$grey: hsla(0.00, 0.00%, 65.25%, 1.00)
 $dk-grey: hsla(0.00, 0.00%, 24.71%, 1.00)
 $black: hsla(0.00, 20.00%, 14.71%, 1.00)
 
 // you can adjust the primary color here, or edit below:
-$primary: $yellow
-$secondary: $blue
+$primary: $green
+$secondary: $lt-green
 $light: $lt-grey
 $medium: $grey
 $dark: $dk-grey
@@ -44,17 +46,17 @@ $ff-use-checkbox-radio: true
 // General form settings
 $ff-form-width: 100%
 $ff-form-max-width: 500px
-$ff-form-bg: $secondary              // Leave transparent to inherit background
+$ff-form-bg: $white              // Leave transparent to inherit background
 $ff-form-padding: 1.5em 3em           // Form padding
-$ff-form-font-family: $helvetica
-$ff-form-font-size: 18px
+$ff-form-font-family: $cambria
+$ff-form-font-size: 17px
 $ff-form-font-weight: inherit
 $ff-form-text-transform: inherit
 $ff-form-color: $black
 
 // groups
 $ff-group-stacked: false        // Enter true to stack inputs in fieldsets
-$ff-group-margin-bottom: .5em
+$ff-group-margin-bottom: 0
 $ff-group-bg: inherit
 $ff-group-padding: 0
 
@@ -62,25 +64,25 @@ $ff-group-padding: 0
 $ff-field-bg: inherit
 $ff-field-bg-round: 0
 $ff-field-padding: 0
-$ff-field-margin-bottom: .25em
+$ff-field-margin-bottom: 0
 
 
 // labels
-$ff-label-width: 15%
-$ff-label-position: left         // left/right/top/bottom/none
-$ff-label-align: center           // left/right/center
+$ff-label-width: 25%
+$ff-label-position: top         // left/right/top/bottom/none
+$ff-label-align: left           // left/right/center
 $ff-label-font-size: inherit
-$ff-label-font-family: 'icomoon'    // use this for font-icons!
+$ff-label-font-family: inherit    // use this for font-icons!
 $ff-label-font-weight: normal
-$ff-label-color: $red
+$ff-label-color: $medium
 $ff-label-text-transform: inherit // uppercase/lowercase/none
 $ff-label-padding-horizontal: 0
 $ff-label-offset: 0             // if you do use em for $ff-input-height, you can tweak the label height here
 
 
-$ff-label-cap: true               // add containers around your labels
+$ff-label-cap: false               // add containers around your labels
 $ff-label-cap-bg: $primary
-$ff-label-cap-bg-image: none
+$ff-label-cap-bg-image: lighten($primary, 25%) 15px, $primary
 $ff-label-cap-box-shadow: none
 $ff-label-inside: false
 
@@ -88,44 +90,45 @@ $ff-label-inside: false
 $ff-input-font-size: inherit
 $ff-input-font-weight: normal
 // use px if you can!  browsers want input height to be in px
-$ff-input-height: 50px
+$ff-input-height: 45px
 $ff-input-padding-horizontal: 15px
 $ff-input-round: 4px
-$ff-input-color: $secondary
+$ff-input-color: $dark
 $ff-input-bg: white
+$ff-input-bg-image: lighten($light, 3%), white 5px, white
 $ff-input-border-style: solid
-$ff-input-border-width: 0
-$ff-input-border-color: $light
-$ff-input-box-shadow: none
+$ff-input-border-width: 3px
+$ff-input-border-color: white
+$ff-input-box-shadow: 0 0 15px 4px rgba(0,0,0,.05), inset 0 0 0 1px $light
 
 
 // checkboxes and radios
 $ff-check-radio-columns: 1         // how many should fit across
 $ff-check-radio-color: inherit
-$ff-check-radio-hover-color: inherit
+$ff-check-radio-hover-color: $primary
 
 
 // input state
-$ff-state-style: shadow                // 'border/shadow'
-$ff-state-shadow: inset 0 0 3px 2px     // if 'shadow' is used
+$ff-state-style: none                // 'border/shadow'
+$ff-state-shadow: 0 0 3px 2px     // if 'shadow' is used
 $ff-state-focus: $primary
-$ff-state-focus-bg: white
+$ff-state-focus-bg: lighten($secondary, 11%)
 $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
-$ff-state-success: $green
+$ff-state-success: $primary
 $ff-state-required-color: red
 
 // these will change text color to state colors if html5 is used
 $ff-state-help-change-color: false
 $ff-state-label-change-color: false
-$ff-state-change-on-success: false
+$ff-state-change-on-success: true
 
 
 
 // legend
-$ff-legend-display: true
+$ff-legend-display: false
 $ff-legend-font-size: 1.4em
-$ff-legend-color: white
+$ff-legend-color: $medium
 $ff-legend-margin-bottom: .5em
 $ff-legend-text-align: left
 $ff-legend-font-weight: bold
@@ -133,11 +136,11 @@ $ff-legend-text-transform: none
 
 
 // Help block styles.  *These will auto-hide on stacked fields
-$ff-help-display: false
-$ff-help-display-on-focus: false
-$ff-help-color: darken($medium, 50%)
-$ff-help-size: .9em
-$ff-help-align: left
+$ff-help-display: true
+$ff-help-display-on-focus: true
+$ff-help-color: $medium
+$ff-help-size: .75em
+$ff-help-align: right
 
 
 // placeholder
@@ -148,7 +151,7 @@ $ff-placeholder-color: $secondary
 // submit button
 $ff-submit-bg: $primary
 $ff-submit-bg-image: none
-$ff-submit-color: $red
+$ff-submit-color: $white
 $ff-submit-text-shadow: none
 $ff-submit-box-shadow: none
 $ff-submit-border-width: 0
@@ -156,7 +159,7 @@ $ff-submit-border-style: solid
 $ff-submit-border-color: $dark
 $ff-submit-font-size: 1.2em
 $ff-submit-height: 3em
-$ff-submit-hover-bg: $red
+$ff-submit-hover-bg: $secondary
 $ff-submit-hover-color: white
 $ff-submit-text-transform: lowercase
 $ff-submit-font-weight: normal
