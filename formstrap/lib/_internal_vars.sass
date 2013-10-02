@@ -16,13 +16,11 @@ $ff-input-width: 100%
 +label((top,bottom,none))
   $ff-label-inside: false
 
+@if $ff-group-stacked
+  $ff-help-display: false
 
 @if $ff-state-focus-bg == inherit
   $ff-state-focus-bg: $ff-input-bg
-
-// force display to true if on focus is selected
-@if $ff-help-display-on-focus
-  $ff-help-display: true
 
 @if $ff-state-change-on-success
   $ff-state-label-change-color: true

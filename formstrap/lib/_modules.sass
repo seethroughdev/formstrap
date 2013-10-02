@@ -37,11 +37,6 @@
         +label(top)
           margin-top: 5px
 
-
-        @if $ff-help-display == false
-          display: none
-        @if $ff-group-stacked
-          display: none
         @if $ff-help-display-on-focus == true
           opacity: 0
           // line-height: 0
@@ -82,7 +77,7 @@
         +label(bottom)
           display: block
           position: relative
-          @if $ff-help-display
+          @if $ff-help-display or $ff-help-display-on-focus
             float: left
 
         @if $ff-label-cap
