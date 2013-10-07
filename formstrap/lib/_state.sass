@@ -40,9 +40,7 @@
           +color-state($ff-state-success)
 
   @if $ff-label-cap
-    fieldset
-      &.checkbox-group, &.radio-group
-        input:focus
-          +sibling-state()
-            background: transparent
-            color: $ff-form-color
+    input[type="checkbox"]:focus, input[type="radio"]:focus
+      +sibling-state()
+        background: transparent
+        color: $ff-form-color

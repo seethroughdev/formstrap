@@ -177,6 +177,55 @@
       +placeholder
         color: transparent
 
+    @if $ff-use-checkbox-radio
+      &[type="checkbox"], &[type="radio"]
+        box-shadow: none
+        float: left
+        width: auto
+        +label(top)
+          margin-top: 0
+          border-top: 0
+          box-shadow: none
+        +label(bottom)
+          margin-top: 0
+          border-top: 0
+          box-shadow: none
+        +break(mobile-only)
+          min-height: 40px
+        +sibling-state(help)
+          display: none
+        +sibling-state()
+          background: transparent
+          text-align: left
+          display: inline-block !important
+          opacity: 1
+          border: 0
+          color: $ff-check-radio-color
+          border-radius: 0
+          width: auto
+          float: none
+          padding: 0 10px
+          position: relative
+          right: 0
+          left: 0
+          cursor: pointer
+          font-family: inherit
+          font-size: $ff-input-font-size
+          line-height: $ff-input-height
+          @if $ff-label-cap
+            background: transparent
+          +label((top,bottom))
+            position: relative
+            top: 0
+            left: 10px
+          @if $ff-label-inside
+            position: relative
+            top: 0
+            left: 10px
+
+          &:hover
+            cursor: pointer
+            color: $ff-check-radio-hover-color
 
   textarea
     @extend input
@@ -299,65 +348,8 @@
           @else
             border-radius: $ff-input-round
 
-    @if $ff-use-checkbox-radio
-      &.checkbox-group, &.radio-group
-        label
-          float: left
-          width: (100 / $ff-check-radio-columns) * 1%
-          margin-bottom: $ff-field-margin-bottom / 2
-          +label(left)
-            +ifFalsy($ff-label-inside)
-              padding-left: $ff-label-width
-          // @if $ff-label-position != none
-          .label-text
-            background: transparent
 
-            text-align: left
-            display: inline-block !important
-            opacity: 1
-            border: 0
-            color: $ff-check-radio-color
-            border-radius: 0
-            width: auto
-            float: none
-            padding: 0 10px
-            position: relative
-            right: 0
-            left: 0
-            cursor: pointer
-            font-family: inherit
-            font-size: $ff-input-font-size
-            line-height: $ff-input-height
-            @if $ff-label-cap
-              background: transparent
-            +label((top,bottom))
-              position: relative
-              top: 0
-              left: 10px
-            @if $ff-label-inside
-              position: relative
-              top: 0
-              left: 10px
 
-            &:hover
-              cursor: pointer
-              color: $ff-check-radio-hover-color
-        .help-text
-          display: none
-        input
-          box-shadow: none
-          float: left
-          width: auto
-          +label(top)
-            margin-top: 0
-            border-top: 0
-            box-shadow: none
-          +label(bottom)
-            margin-top: 0
-            border-top: 0
-            box-shadow: none
-          +break(mobile-only)
-            min-height: 40px
 
   @if $ff-use-twitter-bootstrap
     .form-group
