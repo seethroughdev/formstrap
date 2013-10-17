@@ -1,173 +1,154 @@
 /*
- * FormStrap
- * by Adam L
- * @seethroughtrees
+ * FormFace Theme
  *
- * http://formstrapcss.com
- * Github Theme
- *
+ * aaa
+ * http://formulatecss.com/#/themes/103/aaa
  */
 
-// Set your color variables here, you can add or edit any way you see fit, just be sure to use update the variables below in the settings.
+// View the docs at http://formulatecss.com/#/docs/vars
 
-$white: hsla(48.57, 46.67%, 91.18%, 1.00)
-$red: hsla(9.03, 100.00%, 44.31%, 1.00)
-$lt-green: hsla(77.65, 48.57%, 86.27%, 1.00)
-$green: hsla(94.29, 12.50%, 56.08%, 1.00)
-$lt-blue: hsla(207.17, 41.73%, 75.10%, 1.00)
-$grey: hsla(60.00, 17.46%, 75.29%, 1.00)
-$dk-blue: hsla(205.09, 24.44%, 55.88%, 1.00)
+// Color Variables
 $black: hsla(0.00, 20.00%, 14.71%, 1.00)
+$white: hsla(0.00, 0.00%, 100.00%, 1.00)
+$red: hsla(9.03, 100.00%, 44.31%, 1.00)
+$green: hsla(94.29, 12.50%, 56.08%, 1.00)
+$grey: hsla(0.00, 0.00%, 77.84%, 1.00)
 
-// you can adjust the primary color here, or edit below:
-$primary: $green
-$secondary: $lt-green
-$light: $dk-blue
-$medium: darken($light, 8%)
-$dark: darken($light, 13%)
+$primary: hsla(205.09, 24.44%, 55.88%, 1.00)
+$secondary: hsla(77.65, 48.57%, 86.27%, 1.00)
+$tertiary: hsla(77.65, 48.57%, 86.27%, 1.00)
+$dark: darken($primary, 8%)
+$light: lighten($primary, 8%)
 
-// admin settings, change these if you need to.  Otherwise, leave it!
 
-// Disable if you are already using Nicolas Gallagher's Normalize.css http://necolas.github.io/normalize.css/
+// Admin settings, change these ONLY if you need to.
 $ff-import-normalize: true
-
-// Disable if you are already using box-sizing(border-box) on your site.
 $ff-import-box-sizing: true
-
-// Enable if you're using Twitter Bootstrap
 $ff-use-twitter-bootstrap: false
-
-// If you're not going to use checkbox/radio inputs, set this to false to save an extra 1kb
-$ff-use-checkbox-radio: true
 
 
 // General form settings
 $ff-form-width: 100%
 $ff-form-max-width: 500px
-$ff-form-bg: $light              // Leave transparent to inherit background
-$ff-form-padding: 1.5em 3em           // Form padding
-$ff-form-font-family: 'Open Sans', sans-serif
-$ff-form-font-size: 15px
+$ff-form-bg: transparent
+$ff-form-padding: 0
+$ff-form-font-family: inherit
+$ff-form-font-size: inherit
 $ff-form-font-weight: inherit
-$ff-form-text-transform: inherit
-$ff-form-color: $white
+$ff-form-text-transform: none
+$ff-form-color: inherit
 
-// groups
-$ff-group-stacked: false        // Enter true to stack inputs in fieldsets
+
+// Groups Settings
+$ff-group-stacked: false
 $ff-group-margin-bottom: 0
 $ff-group-bg: inherit
 $ff-group-padding: 0
 
-// fields
+
+// Field Settings
 $ff-field-bg: inherit
 $ff-field-bg-round: 0
 $ff-field-padding: 0
-$ff-field-margin-bottom: .75em
+$ff-field-margin-bottom: 0
 
 
-// labels
-$ff-label-width: 33%
-$ff-label-position: left         // left/right/top/bottom/none
-$ff-label-align: left           // left/right/center
+// Label Settings
+$ff-label-display: true
+$ff-label-inside: false
+$ff-label-width: 25%
+$ff-label-position: top
+$ff-label-align: left
 $ff-label-font-size: inherit
-$ff-label-font-family: inherit    // use this for font-icons!
-$ff-label-font-weight: normal
-$ff-label-color: lighten($light, 30%)
-$ff-label-text-transform: uppercase // uppercase/lowercase/none
-$ff-label-padding-horizontal: 10px
-$ff-label-offset: 0             // if you do use em for $ff-input-height, you can tweak the label height here
+$ff-label-font-family: inherit
+$ff-label-font-weight: inherit
+$ff-label-color: inherit
+$ff-label-text-transform: inherit
+$ff-label-padding-horizontal: 0
+$ff-label-offset: 0
 
-
-$ff-label-cap: false               // add containers around your labels
-$ff-label-cap-bg: $primary
-$ff-label-cap-bg-image: lighten($primary, 25%) 15px, $primary
+$ff-label-cap: false
+$ff-label-cap-bg: inherit
+$ff-label-cap-bg-img: none
 $ff-label-cap-box-shadow: none
-$ff-label-inside: true
 
-// inputs
+
+// Input Settings
+// use px for font-size if you can!
 $ff-input-font-size: inherit
-$ff-input-font-weight: normal
-// use px if you can!  browsers want input height to be in px
+$ff-input-font-weight: inherit
 $ff-input-height: 45px
 $ff-input-padding-horizontal: 15px
-$ff-input-round: 4px
+$ff-input-round: 0
 $ff-input-color: inherit
-$ff-input-bg: $medium
-$ff-input-bg-image: none
+$ff-input-bg: $white
+$ff-input-bg-img: none
+$ff-input-border-width: 1px
 $ff-input-border-style: solid
-$ff-input-border-width: 0
-$ff-input-border-color: white
-$ff-input-box-shadow: inset 0 2px 5px 2px rgba(0,0,0,.1)
+$ff-input-border-color: $black
+$ff-input-box-shadow: none
 
-// checkboxes and radios
-$ff-check-radio-columns: 1         // how many should fit across
+
+// Checkbox and Radio Settings
 $ff-check-radio-color: inherit
-$ff-check-radio-hover-color: $primary
+$ff-check-radio-hover-color: inherit
 
 
-// input state
-$ff-state-style: none                // 'border/shadow'
-$ff-state-shadow: 0 0 3px 2px     // if 'shadow' is used
-$ff-state-focus: $white
-$ff-state-focus-bg: $dark
-$ff-state-disabled: $dark
+// State Settings
+$ff-state-style: border
+$ff-state-shadow: none
+$ff-state-focus-label-color: $black
+$ff-state-focus-input-bg: inherit
+$ff-state-disabled: $grey
 $ff-state-invalid: $red
-$ff-state-success: $white
-$ff-state-required-color: red
+$ff-state-success: $green
+$ff-state-required: inherit
 
-// these will change text color to state colors if html5 is used
-$ff-state-help-change-color: false
+// html5 State Changes
+$ff-state-help-change-color: true
 $ff-state-label-change-color: true
 $ff-state-change-on-success: false
 
 
-
-// legend
-$ff-legend-display: false
-$ff-legend-font-size: 1.4em
-$ff-legend-color: $medium
-$ff-legend-margin-bottom: .5em
+// Legend Settings
+$ff-legend-display: true
+$ff-legend-font-size: inherit
+$ff-legend-color: inherit
+$ff-legend-margin-bottom: 1em
 $ff-legend-text-align: left
-$ff-legend-font-weight: bold
+$ff-legend-font-weight: inherit
 $ff-legend-text-transform: none
 
 
-// Help block styles.  *These will auto-hide on stacked fields
-$ff-help-display: false
-$ff-help-display-on-focus: true
-$ff-help-color: $medium
-$ff-help-size: .75em
-$ff-help-align: right
+// Help Settings
+$ff-help-display: true
+$ff-help-display-on-focus: false
+$ff-help-color: inherit
+$ff-help-font-size: .9em
+$ff-help-text-align: left
 
 
-// placeholder
-$ff-placeholder-show: false
-$ff-placeholder-color: $white
+// Placeholder Settings
+$ff-placeholder-display: true
+$ff-placeholder-color: $grey
 
 
-// submit button
-$ff-submit-bg: $dark
-$ff-submit-bg-image: none
-$ff-submit-color: $white
+// Submit Button Settings
+$ff-submit-bg: inherit
+$ff-submit-bg-img: none
+$ff-submit-color: inherit
 $ff-submit-text-shadow: none
 $ff-submit-box-shadow: none
 $ff-submit-border-width: 0
 $ff-submit-border-style: solid
-$ff-submit-border-color: $medium
+$ff-submit-border-color: $black
 $ff-submit-font-size: inherit
 $ff-submit-height: 3em
-$ff-submit-hover-bg: $medium
-$ff-submit-hover-color: white
-$ff-submit-text-transform: uppercase
+$ff-submit-hover-bg: inherit
+$ff-submit-hover-color: inherit
+$ff-submit-text-transform: none
 $ff-submit-font-weight: inherit
 
 
-// responsive
-$break-small: 480px
-$break-medium: 1024px
-$break-large: 1200px
-
 // add extra CSS here or load it after formstrap.sass
 @mixin after
-
-

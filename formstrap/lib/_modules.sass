@@ -13,11 +13,11 @@
     .help-text
       @if $ff-help-display
         display: block
-        height: $ff-help-size * 1.8
-        line-height: $ff-help-size * 1.8
+        height: $ff-help-font-size * 1.8
+        line-height: $ff-help-font-size * 1.8
         color: $ff-help-color
-        font-size: $ff-help-size
-        text-align: $ff-help-align
+        font-size: $ff-help-font-size
+        text-align: $ff-help-text-align
 
         +label(none)
           margin-right: 0
@@ -84,8 +84,8 @@
           background: $ff-label-cap-bg
           overflow: hidden
           +border()
-          +ifTruthy($ff-label-cap-bg-image)
-            +linear-gradient($ff-label-cap-bg-image,transparent)
+          +ifTruthy($ff-label-cap-bg-img)
+            +linear-gradient($ff-label-cap-bg-img,transparent)
           +ifTruthy($ff-label-cap-box-shadow)
             box-shadow: $ff-label-cap-box-shadow
 
@@ -127,8 +127,8 @@
     border-radius: $ff-input-round
     vertical-align: middle
     background: $ff-input-bg
-    +ifTruthy($ff-input-bg-image)
-      +linear-gradient($ff-input-bg-image, transparent)
+    +ifTruthy($ff-input-bg-img)
+      +linear-gradient($ff-input-bg-img, transparent)
     +border()
     box-shadow: $ff-input-box-shadow
 
@@ -166,66 +166,65 @@
 
     // placeholder with polyfill support
     // https://github.com/mathiasbynens/jquery-placeholder
-    +ifTruthy($ff-placeholder-show)
+    +ifTruthy($ff-placeholder-display)
       .placeholder
         color: $ff-placeholder-color
       +placeholder
         color: $ff-placeholder-color
-    +ifFalsy($ff-placeholder-show)
+    +ifFalsy($ff-placeholder-display)
       .placeholder
         color: transparent
       +placeholder
         color: transparent
 
-    @if $ff-use-checkbox-radio
-      &[type="checkbox"], &[type="radio"]
+    &[type="checkbox"], &[type="radio"]
+      box-shadow: none
+      float: left
+      width: auto
+      +label(top)
+        margin-top: 0
+        border-top: 0
         box-shadow: none
-        float: left
+      +label(bottom)
+        margin-top: 0
+        border-top: 0
+        box-shadow: none
+      +break(mobile-only)
+        min-height: 40px
+      +sibling-state(help)
+        display: none
+      +sibling-state()
+        background: transparent
+        text-align: left
+        display: inline-block !important
+        opacity: 1
+        border: 0
+        color: $ff-check-radio-color
+        border-radius: 0
         width: auto
-        +label(top)
-          margin-top: 0
-          border-top: 0
-          box-shadow: none
-        +label(bottom)
-          margin-top: 0
-          border-top: 0
-          box-shadow: none
-        +break(mobile-only)
-          min-height: 40px
-        +sibling-state(help)
-          display: none
-        +sibling-state()
+        float: none
+        padding: 0 10px
+        position: relative
+        right: 0
+        left: 0
+        cursor: pointer
+        font-family: inherit
+        font-size: $ff-input-font-size
+        line-height: $ff-input-height
+        @if $ff-label-cap
           background: transparent
-          text-align: left
-          display: inline-block !important
-          opacity: 1
-          border: 0
-          color: $ff-check-radio-color
-          border-radius: 0
-          width: auto
-          float: none
-          padding: 0 10px
+        +label((top,bottom))
           position: relative
-          right: 0
-          left: 0
-          cursor: pointer
-          font-family: inherit
-          font-size: $ff-input-font-size
-          line-height: $ff-input-height
-          @if $ff-label-cap
-            background: transparent
-          +label((top,bottom))
-            position: relative
-            top: 0
-            left: 10px
-          @if $ff-label-inside
-            position: relative
-            top: 0
-            left: 10px
+          top: 0
+          left: 10px
+        @if $ff-label-inside
+          position: relative
+          top: 0
+          left: 10px
 
-          &:hover
-            cursor: pointer
-            color: $ff-check-radio-hover-color
+        &:hover
+          cursor: pointer
+          color: $ff-check-radio-hover-color
 
   textarea
     @extend input

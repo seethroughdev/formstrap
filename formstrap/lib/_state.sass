@@ -7,11 +7,11 @@
       z-index: 10
 
     &:focus
-      +color-state($ff-state-focus)
-      @if $ff-state-focus-bg == inherit
+      +color-state($ff-state-focus-label-color)
+      @if $ff-state-focus-input-bg == inherit
         background: $ff-input-bg
       @else
-        background: $ff-state-focus-bg
+        background: $ff-state-focus-input-bg
       @if $ff-help-display-on-focus == true
         +sibling-state(help)
           opacity: 1
@@ -30,11 +30,11 @@
     &:required
       ~ .label-text:after
         content: ' *'
-        color: $ff-state-required-color
+        color: $ff-state-required
       &:invalid
         +color-state(undo)
       &:focus
-        +color-state($ff-state-focus)
+        +color-state($ff-state-focus-label-color)
       @if $ff-state-change-on-success
         &:focus
           +color-state($ff-state-success)

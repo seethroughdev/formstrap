@@ -1,8 +1,8 @@
 .form-face
   input[type="submit"], input[type="button"]
     background: $ff-submit-bg
-    +ifTruthy($ff-submit-bg-image)
-      +linear-gradient($ff-submit-bg-image,transparent)
+    +ifTruthy($ff-submit-bg-img)
+      +linear-gradient($ff-submit-bg-img,transparent)
     +ifTruthy($ff-submit-text-shadow)
       text-shadow: $ff-submit-text-shadow
     font-size: $ff-submit-font-size
@@ -18,7 +18,7 @@
     white-space: nowrap
     height: $ff-submit-height
     margin-bottom: 1em
-    +ifFalsy($ff-submit-bg-image)
+    +ifFalsy($ff-submit-bg-img)
       @extend .transition
 
     +label(left)

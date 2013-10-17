@@ -19,19 +19,19 @@ $ff-input-width: 100%
 @if $ff-group-stacked
   $ff-help-display: false
 
-@if $ff-state-focus-bg == inherit
-  $ff-state-focus-bg: $ff-input-bg
+@if $ff-state-focus-input-bg == inherit
+  $ff-state-focus-input-bg: $ff-input-bg
 
 @if $ff-state-change-on-success
   $ff-state-label-change-color: true
 
 // a hack to allow gradients in variables
-+ifTruthy($ff-label-cap-bg-image)
-  $ff-label-cap-bg-image: "#{$ff-label-cap-bg-image} 100%"
-+ifTruthy($ff-submit-bg-image)
-  $ff-submit-bg-image: "#{$ff-submit-bg-image} 100%"
-+ifTruthy($ff-input-bg-image)
-  $ff-input-bg-image: "#{$ff-input-bg-image} 100%"
++ifTruthy($ff-label-cap-bg-img)
+  $ff-label-cap-bg-img: "#{$ff-label-cap-bg-img} 100%"
++ifTruthy($ff-submit-bg-img)
+  $ff-submit-bg-img: "#{$ff-submit-bg-img} 100%"
++ifTruthy($ff-input-bg-img)
+  $ff-input-bg-img: "#{$ff-input-bg-img} 100%"
 
 .transition
   +transition(background ease-in-out .2s, color ease-in-out .2s)

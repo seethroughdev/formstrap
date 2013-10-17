@@ -80,7 +80,7 @@ $ff-label-offset: 0             // if you do use em for $ff-input-height, you ca
 
 $ff-label-cap: true               // add containers around your labels
 $ff-label-cap-bg: $primary
-$ff-label-cap-bg-image: lighten($primary, 25%) 15%, $primary
+$ff-label-cap-bg-img: lighten($primary, 25%) 15%, $primary
 $ff-label-cap-box-shadow: none
 $ff-label-inside: false
 
@@ -93,7 +93,7 @@ $ff-input-padding-horizontal: 15px
 $ff-input-round: 4px
 $ff-input-color: $secondary
 $ff-input-bg: white
-$ff-input-bg-image: none
+$ff-input-bg-img: none
 $ff-input-border-style: solid
 $ff-input-border-width: 0
 $ff-input-border-color: $light
@@ -101,7 +101,6 @@ $ff-input-box-shadow: none
 
 
 // checkboxes and radios
-$ff-check-radio-columns: 1         // how many should fit across
 $ff-check-radio-color: white
 $ff-check-radio-hover-color: $primary
 
@@ -109,12 +108,12 @@ $ff-check-radio-hover-color: $primary
 // input state
 $ff-state-style: shadow                // 'border/shadow'
 $ff-state-shadow: inset 0 0 3px 2px     // if 'shadow' is used
-$ff-state-focus: $primary
-$ff-state-focus-bg: white
+$ff-state-focus-label-color: $primary
+$ff-state-focus-input-bg: white
 $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
 $ff-state-success: $green
-$ff-state-required-color: red
+$ff-state-required: red
 
 // these will change text color to state colors if html5 is used
 $ff-state-help-change-color: false
@@ -137,18 +136,18 @@ $ff-legend-text-transform: none
 $ff-help-display: false
 $ff-help-display-on-focus: false
 $ff-help-color: darken($medium, 50%)
-$ff-help-size: .9em
-$ff-help-align: left
+$ff-help-font-size: .9em
+$ff-help-text-align: left
 
 
 // placeholder
-$ff-placeholder-show: true
+$ff-placeholder-display: true
 $ff-placeholder-color: $secondary
 
 
 // submit button
 $ff-submit-bg: $primary
-$ff-submit-bg-image: lighten($primary, 20%) 15%, $primary
+$ff-submit-bg-img: lighten($primary, 20%) 15%, $primary
 $ff-submit-color: $red
 $ff-submit-text-shadow: none
 $ff-submit-box-shadow: none

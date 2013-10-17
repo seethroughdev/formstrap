@@ -80,7 +80,7 @@ $ff-label-offset: 0             // if you do use em for $ff-input-height, you ca
 
 $ff-label-cap: false               // add containers around your labels
 $ff-label-cap-bg: $primary
-$ff-label-cap-bg-image: lighten($primary, 25%) 15px, $primary
+$ff-label-cap-bg-img: lighten($primary, 25%) 15px, $primary
 $ff-label-cap-box-shadow: none
 $ff-label-inside: true
 
@@ -93,14 +93,13 @@ $ff-input-padding-horizontal: 15px
 $ff-input-round: 4px
 $ff-input-color: inherit
 $ff-input-bg: $medium
-$ff-input-bg-image: none
+$ff-input-bg-img: none
 $ff-input-border-style: solid
 $ff-input-border-width: 0
 $ff-input-border-color: white
 $ff-input-box-shadow: inset 0 2px 5px 2px rgba(0,0,0,.1)
 
 // checkboxes and radios
-$ff-check-radio-columns: 1         // how many should fit across
 $ff-check-radio-color: inherit
 $ff-check-radio-hover-color: $primary
 
@@ -108,12 +107,12 @@ $ff-check-radio-hover-color: $primary
 // input state
 $ff-state-style: none                // 'border/shadow'
 $ff-state-shadow: 0 0 3px 2px     // if 'shadow' is used
-$ff-state-focus: $white
-$ff-state-focus-bg: $dark
+$ff-state-focus-label-color: $white
+$ff-state-focus-input-bg: $dark
 $ff-state-disabled: $dark
 $ff-state-invalid: $red
 $ff-state-success: $white
-$ff-state-required-color: red
+$ff-state-required: red
 
 // these will change text color to state colors if html5 is used
 $ff-state-help-change-color: false
@@ -136,18 +135,18 @@ $ff-legend-text-transform: none
 $ff-help-display: false
 $ff-help-display-on-focus: true
 $ff-help-color: $medium
-$ff-help-size: .75em
-$ff-help-align: right
+$ff-help-font-size: .75em
+$ff-help-text-align: right
 
 
 // placeholder
-$ff-placeholder-show: false
+$ff-placeholder-display: false
 $ff-placeholder-color: $white
 
 
 // submit button
 $ff-submit-bg: $dark
-$ff-submit-bg-image: none
+$ff-submit-bg-img: none
 $ff-submit-color: $white
 $ff-submit-text-shadow: none
 $ff-submit-box-shadow: none

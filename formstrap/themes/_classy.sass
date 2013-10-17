@@ -80,7 +80,7 @@ $ff-label-offset: 0             // if you do use em for $ff-input-height, you ca
 
 $ff-label-cap: false               // add containers around your labels
 $ff-label-cap-bg: $primary
-$ff-label-cap-bg-image: lighten($primary, 25%) 15px, $primary
+$ff-label-cap-bg-img: lighten($primary, 25%) 15px, $primary
 $ff-label-cap-box-shadow: none
 $ff-label-inside: false
 
@@ -93,7 +93,7 @@ $ff-input-padding-horizontal: 15px
 $ff-input-round: 4px
 $ff-input-color: $dark
 $ff-input-bg: white
-$ff-input-bg-image: lighten($light, 3%), white 5px, white
+$ff-input-bg-img: lighten($light, 3%), white 5px, white
 $ff-input-border-style: solid
 $ff-input-border-width: 3px
 $ff-input-border-color: white
@@ -101,7 +101,6 @@ $ff-input-box-shadow: 0 0 15px 4px rgba(0,0,0,.05), inset 0 0 0 1px $light
 
 
 // checkboxes and radios
-$ff-check-radio-columns: 1         // how many should fit across
 $ff-check-radio-color: inherit
 $ff-check-radio-hover-color: $primary
 
@@ -109,12 +108,12 @@ $ff-check-radio-hover-color: $primary
 // input state
 $ff-state-style: none                // 'border/shadow'
 $ff-state-shadow: 0 0 3px 2px     // if 'shadow' is used
-$ff-state-focus: $primary
-$ff-state-focus-bg: lighten($secondary, 11%)
+$ff-state-focus-label-color: $primary
+$ff-state-focus-input-bg: lighten($secondary, 11%)
 $ff-state-disabled: darken($ff-input-bg, 3%)
 $ff-state-invalid: $red
 $ff-state-success: $primary
-$ff-state-required-color: red
+$ff-state-required: red
 
 // these will change text color to state colors if html5 is used
 $ff-state-help-change-color: false
@@ -137,18 +136,18 @@ $ff-legend-text-transform: none
 $ff-help-display: true
 $ff-help-display-on-focus: true
 $ff-help-color: $medium
-$ff-help-size: .75em
-$ff-help-align: right
+$ff-help-font-size: .75em
+$ff-help-text-align: right
 
 
 // placeholder
-$ff-placeholder-show: true
+$ff-placeholder-display: true
 $ff-placeholder-color: $secondary
 
 
 // submit button
 $ff-submit-bg: $primary
-$ff-submit-bg-image: none
+$ff-submit-bg-img: none
 $ff-submit-color: $white
 $ff-submit-text-shadow: none
 $ff-submit-box-shadow: none
